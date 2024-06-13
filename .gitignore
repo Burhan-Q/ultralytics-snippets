@@ -1,0 +1,44 @@
+# Ignore node_modules directory
+node_modules/
+*.vsix
+
+# Ignore built extension files
+out/
+
+# Ignore user-specific VSCode settings
+.vscode/
+
+# Ignore any temporary files
+*.tmp
+
+# Ignore any log files
+*.log
+
+# Ignore any compiled JavaScript files
+*.js
+
+# Ignore any compiled TypeScript files
+*.ts
+
+# Ignore any compiled CSS files
+*.css
+
+# Ignore any compiled HTML files
+*.html
+
+# Ignore any compiled XML files
+*.xml
+
+# Ignore any compiled image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Ignore any compiled font files
+*.woff
+*.woff2
+*.ttf
+*.eot
+*.otf
