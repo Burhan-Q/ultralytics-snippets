@@ -1,0 +1,64 @@
+// Ultralytics YOLO 🚀, AGPL-3.0 license
+
+{
+	"Ultralytics Results Class Names": {
+		"prefix": "ultra.results-class-strings",
+		"body": [
+			"names: dict[int, str] = ${1:model}.names.copy()",
+			"class_names: list[str] = [names[int(c)] for c in ${2:result}.${3|boxes,masks,keypoints,probs,obb|}.cls.tolist()]"
+		],
+		"description": "Convert class indices to class string names for a single image result."
+	},
+    
+    "Ultralytics Results Data": {
+        "prefix": "ultra.results-data",
+        "body": "data = ${1:result}.${2|boxes,masks,keypoints,probs,obb|}.data  # torch.Tensor array",
+        "description": "Get result data array of detections from a single image result."
+    },
+
+	"Ultralytics YOLO Loop Results": {
+		"prefix": "ultra.results-loop",
+		"body": [
+			"for result in ${1:results}:",
+			"    result.${2|boxes,masks,keypoints,probs,obb|}.data  # torch.Tensor array"
+		],
+		"description": "Iterate prediction results from an Ultralytics model."
+	},
+
+	"Ultralytics Results xyxy Boxes": {
+		"prefix": "ultra.results-boxes-xyxy",
+		"body": "xyxy = ${1:result}.${2|boxes,obb|}.xyxy  # torch.Tensor array",
+		"description": "Get pixel-value (x1, y1, x2, y2) bounding box coordinates from a single image result."
+	},
+
+	"Ultralytics Results xywh Boxes": {
+		"prefix": "ultra.results-boxes-xywh",
+		"body": "xywh = ${1:result}.boxes.xywh  # torch.Tensor array",
+		"description": "Get pixel-value (x-center, y-center, w, h) bounding box coordinates from a single image result."
+	},
+
+	"Ultralytics Results Binary Mask":{
+		"prefix": "ultra.results-masks-binary",
+		"body": "mask = ${1:result}.masks.data  # torch.Tensor array",
+		"description": "Get binary segmentation masks from a single image result. NOTE: [N, H, W] shape, with inference H, W dimensions."
+	},
+
+	"Ultralytics Results Mask Coordinates": {
+		"prefix": "ultra.results-masks-contours",
+		"body": "masks: list = ${1:result}.masks.${2|xy,xyn|}  # list of numpy.ndarray",
+		"description": "Get segmentation contours with pixel value xy or normalized xyn coordinates."
+	},
+
+	"Ultralytics Results OBB xywhr": {
+		"prefix": "ultra.results-obb-xywhr",
+		"body": "rot_boxes = ${1:result}.obb.xywhr  # torch.Tensor array",
+		"description": "Get OBB rotated bounding boxes in pixel value [x, y, w, h, r] coordinates as torch.Tensor array."
+	},
+
+	"Ultralytics Results Original Image": {
+        "prefix": "ultra.results-orig-image",
+        "body": "orig_image = ${1:result}.orig_img  # torch.Tensor array$0",
+        "description": "Get original image from a single image result."
+    }
+
+}

@@ -1,0 +1,58 @@
+// Ultralytics YOLO 🚀, AGPL-3.0 license
+
+{
+	"Ultralytics Auto Annotate": {
+		"prefix": "ultra.util-auto-annotate",
+		"body": [
+			"from ultralytics.data.annotator import auto_annotate",
+			"",
+			"auto_annotate(data=\"$1\", det_model=\"yolov8${2|n,s,m,l,x|}.pt\", sam_model=\"${3|sam_b,sam_l,mobile_sam,FastSAM-s,FastSAM-x|}.pt\", device=\"${4|cuda,cpu|}\", output_dir=\"$5\")"
+		],
+		"description": "Use Ultralytics auto_annotate function to generate annotations."
+	},
+
+	"Ultralytics Plot Annotator": {
+		"prefix": "ultra.util-annotator",
+		"body": [
+			"from ultralytics.utils.plotting import Annotator, colors",
+			"",
+			"${1:image}  # numpy.ndarray",
+			"${2:xyxy_boxes}  # numpy.ndarray",
+			"${3:class_idx}  # list[int], same order as boxes",
+			"names: dict = ${4:model}.names.copy()",
+			"",
+			"ann = Annotator(",
+			"    im=$1,",
+			"    line_width=${6:None},  # int",
+			"    font_size=${7:None},  # int",
+			"    font=\"${8:Arial.ttf}\",  # str",
+			"    pil=${9:False},  # bool",
+			"    example=\"${10:abc}\",  # str",
+			")",
+			"",
+			"for n, box in enumerate(${1}):",
+			"    label = f\"{names[n]}\"",
+			"    ann.box_label(",
+			"        box,",
+			"        label,",
+			"        color=colors(class_idx[n], bgr=True),",
+			"        text_color=${11:(255,255,255)},",
+			"        rotated=${12:False}",
+			"    )",
+			"",
+			"img_annotated = ann.result()"
+		],
+		"description": "Use Ultralytics Annotator class to draw box annotations."
+	},
+
+	"Ultralytics Make Divisible": {
+		"prefix": "ultra.util-make-divisible",
+		"body": [
+			"from ultralytics.utils.ops import make_divisible",
+			"",
+			"make_divisible(${1:width}, ${2:divisor})"
+		],
+		"description": "Use Ultralytics make_divisible function to make a number divisible by another."
+	}
+
+}

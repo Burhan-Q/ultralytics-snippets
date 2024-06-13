@@ -1,0 +1,57 @@
+// Ultralytics YOLO 🚀, AGPL-3.0 license
+
+{
+    "Import Model": {
+		"prefix": "ultra.import-model",
+		"body": "from ultralytics import ${1|YOLO,SAM,RTDETR,FastSAM,NAS|}",
+		"description": "Add line to import Ultralytics YOLO"
+	},
+
+	"Import Assets": {
+		"prefix": "ultra.import-assets",
+		"body": "from ultralytics import ASSETS",
+		"description": "Import Ultralytics ASSETS directory constant."
+	},
+
+	"Import Results": {
+		"prefix": "ultra.import-results",
+		"body": "from ultralytics.engine.results import Results",
+		"description": "Import Ultralytics Results class (usually for type hinting)."
+	},
+
+	"Import Annotator": {
+		"prefix": "ultra.import-annotator",
+		"body": "from ultralytics.data.annotator import auto_annotate",
+		"description": "Import Ultralytics auto_annotate function."
+	},
+
+	"Import COCO Converter": {
+		"prefix": "ultra.import-coco2yolo",
+		"body": "from ultralytics.data.converter import convert_coco",
+		"description": "Import Ultralytics function to convert annotations from COCO to YOLO format."
+	},
+
+	"Import Boxes-to-Segments Converter": {
+		"prefix": "ultra.import-bbox2seg",
+		"body": "from ultralytics.data.converter import yolo_bbox2segment",
+		"description": "Import Ultralytics function to convert horizontal bounding boxes to segmentation contours."
+	},
+
+	"Import Segments-to-Boxes Converter": {
+		"prefix": "ultra.import-seg2bbox",
+		"body": "from ultralytics.utils.ops import segments2boxes",
+		"description": "Import Ultralytics function to convert segmentation contours into horizontal bounding boxes."
+	},
+
+	"Import Ultralytics Box Conversion": {
+		"prefix": "ultra.import-box-convert",
+		"body": "from ultralytics.utils.ops import ${1|xywh2xyxy,xywhn2xyxy,xyxy2xywhn,xywh2ltwh,xyxy2ltwh,ltwh2xywh,ltwh2xyxy|}",
+		"description": "Import Ultralytics function for converting bounding box coordinates."
+	},
+
+	"Import Ultralytics Formats": {
+		"prefix": "ultra.import-formats",
+		"body": "from ultralytics.data.utils import ${1|IMG_FORMATS,VID_FORMATS|}",
+		"description": "Import Ultralytics supported file formats constant."
+	}
+}
