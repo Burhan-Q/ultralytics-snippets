@@ -4,7 +4,7 @@
     "Import Model": {
 		"prefix": "ultra.import-model",
 		"body": "from ultralytics import $0${1|YOLO,SAM,RTDETR,FastSAM,NAS|}",
-		"description": "Add line to import Ultralytics YOLO"
+		"description": "Add line to import an Ultralytics model class."
 	},
 
 	"Import Assets": {
