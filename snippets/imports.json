@@ -3,13 +3,13 @@
 {
     "Import Model": {
 		"prefix": "ultra.import-model",
-		"body": "from ultralytics import ${1|YOLO,SAM,RTDETR,FastSAM,NAS|}",
-		"description": "Add line to import Ultralytics YOLO"
+		"body": "from ultralytics import $0${1|YOLO,SAM,RTDETR,FastSAM,NAS|}",
+		"description": "Add line to import an Ultralytics model class."
 	},
 
 	"Import Assets": {
 		"prefix": "ultra.import-assets",
-		"body": "from ultralytics import ASSETS",
+		"body": "from ultralytics import $0ASSETS",
 		"description": "Import Ultralytics ASSETS directory constant."
 	},
 

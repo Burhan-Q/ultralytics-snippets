@@ -11,7 +11,8 @@
 			"",
 			"for result in results:",
 			"    print(result.boxes.data)",
-			"    # result.show()  # uncomment to view each result image"
+			"    # result.show()  # uncomment to view each result image",
+			"    $0"
 		],
 		"description": "Ultralytics basic YOLO object detection predict example."
 	}

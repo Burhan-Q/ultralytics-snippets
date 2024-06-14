@@ -1,0 +1,109 @@
+// Ultralytics YOLO 🚀, AGPL-3.0 license
+
+{
+	"Ultralytics YOLO Predict": {
+		"prefix": "ultra.yolo-predict",
+		"body": [
+			"from ultralytics import YOLO",
+			"",
+			"src = ${1:None}",
+			"model = YOLO(\"yolov${2|5,8,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"results: list = model.predict(source=src)",
+			"# reference https://docs.ultralytics.com/modes/predict/"
+		],
+		"description": "Setup Ultralytics YOLO to perform inference."
+	},
+
+	"Ultralytics YOLO Validation": {
+		"prefix": "ultra.yolo-val",
+		"body": [
+			"from ultralytics import YOLO",
+			"",
+			"my_data = \"${1:coco8.yaml}\"",
+			"model = YOLO(\"yolov${2|5,8,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"results = model.val(data=my_data)",
+			"# reference https://docs.ultralytics.com/modes/val/"
+		],
+		"description": "Setup Ultralytics YOLO to perform validation."
+	},
+
+	"Ultralytics YOLO Train": {
+		"prefix": "ultra.yolo-train",
+		"body": [
+			"from ultralytics import YOLO",
+			"",
+			"my_data = \"${1:coco8.yaml}\"",
+			"model = YOLO(\"yolov${2|5,8,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"results = model.train(data=my_data)",
+			"# reference https://docs.ultralytics.com/modes/train/"
+		],
+		"description": "Setup Ultralytics YOLO to perform training."
+	},
+
+	"Ultralytics SAM Predict": {
+		"prefix": "ultra.sam-predict",
+		"body": [
+			"from ultralytics import SAM",
+			"",
+			"src = ${1:None}",
+			"model = SAM(\"${2:sam_}${3|b,l|}.pt\")",
+			"results: list = model.predict(source=src)",
+			"# reference https://docs.ultralytics.com/models/sam/"
+		],
+		"description": "Setup Ultralytics SAM to perform inference."
+	},
+
+	"Ultralytics MobileSAM Predict": {
+		"prefix": "ultra.mobile-sam-predict",
+		"body": [
+			"from ultralytics import SAM",
+			"",
+			"src = ${1:None}",
+			"model = SAM(\"mobile_sam.pt\")",
+			"results: list = model.predict(source=src)",
+			"# reference https://docs.ultralytics.com/models/mobile-sam/"
+		],
+		"description": "Setup Ultralytics MobileSAM to perform inference."
+	},
+
+	"Ultralytics FastSAM Predict": {
+		"prefix": "ultra.fast-sam-predict",
+		"body": [
+			"from ultralytics import FastSAM",
+				"# from ultralytics.models.fastsam import FastSAMPrompt",
+			"",
+			"src = ${1:None}",
+			"model = FastSAM(\"mobile_sam${2|s,x|}.pt\")",
+			"results: list = model.predict(source=src)",
+			"# reference https://docs.ultralytics.com/models/fast-sam/"
+		],
+		"description": "Setup Ultralytics FastSAM to perform inference."
+	},
+
+	"Ultralytics NAS Predict": {
+		"prefix": "ultra.nas-predict",
+		"body": [
+			"from ultralytics import NAS",
+			"",
+			"src = ${1:None}",
+			"model = NAS(\"yolo_nas_${2|s,m,l|}.pt\")",
+			"results: list = model.predict(source=src)",
+			"# reference https://docs.ultralytics.com/models/yolo-nas"
+		],
+		"description": "Setup Ultralytics NAS to perform inference."
+	},
+
+	"Ultralytics RT-DETR Predict": {
+		"prefix": "ultra.rtdetr-predict",
+		"body": [
+			"from ultralytics import RTDETR",
+			"",
+			"src = ${1:None}",
+			"model = RTDETR(\"rtdetr-${2|l,x|}.pt\")",
+			"results: list = model.predict(source=src)",
+			"# reference https://docs.ultralytics.com/models/rtdetr/"
+		],
+		"description": "Setup Ultralytics RT-DETR to perform inference."
+	}
+
+}
