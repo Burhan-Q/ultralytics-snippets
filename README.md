@@ -20,21 +20,21 @@ All snippets use the format:
 
 Import snippets are for common objects that would be imported from the Ultralytics library. 
 
-| Alias                          | Description                                                                                  |
-| ------------------------------ | -------------------------------------------------------------------------------------------- |
-| `ultra.import-model`           | Add line to import Ultralytics YOLO                                                          |
-| `ultra.import-assets`          | Import Ultralytics ASSETS directory constant.                                                |
-| `ultra.import-results`         | Import Ultralytics Results class (usually for type hinting).                                 |
-| `ultra.import-annotator`       | Import Ultralytics auto_annotate function.                                                   |
-| `ultra.import-coco2yolo`       | Import Ultralytics function to convert annotations from COCO to YOLO format.                 |
-| `ultra.import-bbox2seg`        | Import Ultralytics function to convert horizontal bounding boxes to segmentation contours.   |
-| `ultra.import-seg2bbox`        | Import Ultralytics function to convert segmentation contours into horizontal bounding boxes. |
-| `ultra.import-box-convert`     | Import Ultralytics function for converting bounding box coordinates.                         |
-| `ultra.import-formats`         | Import Ultralytics supported file formats constant.                                          |
+| Alias                       | Description                                                                                  |
+| --------------------------- | -------------------------------------------------------------------------------------------- |
+| `ultra.import-model`        | Add line to import Ultralytics YOLO                                                          |
+| `ultra.import-assets`       | Import Ultralytics ASSETS directory constant.                                                |
+| `ultra.import-results`      | Import Ultralytics Results class (usually for type hinting).                                 |
+| `ultra.import-annotator`    | Import Ultralytics auto_annotate function.                                                   |
+| `ultra.import-coco2yolo`    | Import Ultralytics function to convert annotations from COCO to YOLO format.                 |
+| `ultra.import-bbox2seg`     | Import Ultralytics function to convert horizontal bounding boxes to segmentation contours.   |
+| `ultra.import-seg2bbox`     | Import Ultralytics function to convert segmentation contours into horizontal bounding boxes. |
+| `ultra.import-box-convert`  | Import Ultralytics function for converting bounding box coordinates.                         |
+| `ultra.import-formats`      | Import Ultralytics supported file formats constant.                                          |
 
 ## Results
 
-These snippets will provide shortcuts for working with `ultralytics.engine.results.Results` objects returned from model inference.
+These snippets will provide shortcuts for working with `ultralytics.engine.results.Results` objects returned from model inference. See the [Working with Results][pred results] of the documentation and the [Results class] reference page for more information.
 
 | Alias                          | Description                                                                                                      |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
@@ -60,16 +60,28 @@ for result in results:
 
 </p></details>
 
-## Utils
+## Models
 
-| Alias                        | Description                                                                    |
-| ---------------------------- | ------------------------------------------------------------------------------ |
-| `ultra.util-auto-annotate`   | Use Ultralytics auto_annotate function to generate annotations.                |
-| `ultra.util-annotator`       | Use Ultralytics Annotator class to draw box annotations, see [docs][ann]       |
-| `ultra.util-make-divisible`  | Use Ultralytics make_divisible function to make a number divisible by another. |
-| `ultra.yolo.predict`         | Use Ultralytics YOLO to perform inference once a single source.                |
-| `ultra.sam.predict`          | Use Ultralytics SAM to perform inference once a single source.                 |
+Quickly set up an [Ultralytics model][models], like [YOLOv8] to work with for various [modes][_modes]. 
 
+| Alias                      | Description                                        | Reference                |
+| -------------------------- | -------------------------------------------------- | ------------------------ |
+| `ultra.yolo-predict`       | Setup Ultralytics YOLO to perform inference.       | [predict mode][_predict] |
+| `ultra.yolo-val`           | Setup Ultralytics YOLO to perform validation.      | [val mode][_val]         |
+| `ultra.yolo-train`         | Setup Ultralytics YOLO to perform training.        | [train mode][_train]     |
+| `ultra.sam-predict`        | Setup Ultralytics SAM to perform inference.        | [SAM]                    |
+| `ultra.mobile-sam-predict` | Setup Ultralytics MobileSAM to perform inference.  | [Mobile SAM]             |
+| `ultra.fast-sam-predict`   | Setup Ultralytics FastSAM to perform inference.    | [FastSAM][fast sam]      |
+| `ultra.nas-predict`        | Setup Ultralytics NAS to perform inference.        | [YOLO NAS]               |
+| `ultra.rtdetr-predict`     | Setup Ultralytics RT-DETR to perform inference.    | [RTDETR]                 |
+
+## Utilities
+
+| Alias                       | Description                                                                    | Reference                              |
+| --------------------------- | ------------------------------------------------------------------------------ | -------------------------------------- |
+| `ultra.util-auto-annotate`  | Use Ultralytics auto_annotate function to generate annotations.                | [`auto_annotator` fucntion][auto ann]  |
+| `ultra.util-annotator`      | Use Ultralytics Annotator class to draw box annotations                        | [`Annotator` class][ann]               |
+| `ultra.util-make-divisible` | Use Ultralytics make_divisible function to make a number divisible by another. | [`make_divisible` function][divisible] |
 
 ### Snippet Example
 
@@ -91,10 +103,9 @@ auto_annotate(data="", det_model="yolov8n.pt", sam_model="sam_b.pt", device="cud
 
 The Example snippets are more "complete" blocks of code that can be used for boilerplate demonstrations.
 
-
-| Alias                        | Description                                                                                                      |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| ultra.example-predict        | Ultralytics basic YOLO object detection predict example.                                                         |
+| Alias                  | Description                                                                                                      |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| ultra.example-predict  | Ultralytics basic YOLO object detection predict example.                                                         |
 
 <details><summary><code>ultra.example-predict</code> Snippet</summary>
 <p>
@@ -117,3 +128,18 @@ for result in results:
 
 
 [ann]: https://docs.ultralytics.com/usage/simple-utilities/#drawing-annotations
+[models]: https://docs.ultralytics.com/models
+[_modes]: https://docs.ultralytics.com/modes
+[_predict]: https://docs.ultralytics.com/modes/predict
+[_train]: https://docs.ultralytics.com/modes/train
+[_val]: https://docs.ultralytics.com/modes/val
+[yolov8]: https://docs.ultralytics.com/models/yolov8
+[sam]: https://docs.ultralytics.com/models/sam
+[mobile sam]: https://docs.ultralytics.com/models/mobile-sam
+[fast sam]: https://docs.ultralytics.com/models/fast-sam
+[yolo nas]: https://docs.ultralytics.com/models/yolo-nas
+[rtdetr]: https://docs.ultralytics.com/models/rtdetr
+[pred results]: https://docs.ultralytics.com/modes/predict/#working-with-results
+[results class]: https://docs.ultralytics.com/reference/engine/results/
+[auto ann]: https://docs.ultralytics.com/reference/data/annotator/
+[divisible]: https://docs.ultralytics.com/reference/utils/ops/#ultralytics.utils.ops.make_divisible
