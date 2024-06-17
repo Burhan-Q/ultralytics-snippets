@@ -106,7 +106,7 @@
 			"keep = np.isin(det_classes, keep_classes).any(axis=1)  # filter by class",
 			"filtered_detections = detections[keep]  # limit results to keep_classes only"
 		],
-		"description": "Filter prediction results by class ID. Normally using \"classes\" keyword argument for prediction should be used."
+		"description": "Filter prediction results by class ID. Using \"classes\" keyword argument for prediction should be preferred."
 	}
 
 }
