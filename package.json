@@ -10,6 +10,13 @@
     },
     "license": "AGPL-3.0-only",
     "icon": "images/Ultralytics-logomark-color.png",
+    "author": {
+        "name": "Burhan Qaddoumi"
+    },
+    "galleryBanner": {
+        "color": "#042AFF",
+        "theme": "dark"
+    },
 	"engines": {
 		"vscode": "^1.28.0"
 	},
@@ -17,7 +24,7 @@
 		"Snippets", "Machine Learning", "Data Science", "AI", "Other"
 	],
     "keywords": [
-        "ultralytics", "snippets", "python", "machine learning", "ai", "yolo", "computer vision", "object detection", "classification", "segmentation", "detection"
+        "ultralytics", "snippets", "python", "machine learning", "ai", "yolo", "computer vision", "object detection", "classification", "segmentation"
     ],
 	"contributes": {
 		"snippets": [
@@ -41,6 +48,7 @@
                 "language": "python",
                 "path": "./snippets/results.json"
             }
-		]
+		],
+    "qna": false
 	}
 }
