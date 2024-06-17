@@ -104,6 +104,36 @@
 			"# reference https://docs.ultralytics.com/models/rtdetr/"
 		],
 		"description": "Setup Ultralytics RT-DETR to perform inference."
+	},
+
+	"Ultralytics YOLO Predict with keywords":{
+		"prefix": "ultra.yolo-predict-kwords",
+		"body":[
+			"from ultralytics import YOLO",
+			"",
+			"src = ${1:None}",
+			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"results: list = model.predict(",
+			"    source=$1,  # (str, optional) source directory for images or videos",
+			"    conf=${5:0.25},  # (float) minimum confidence threshold",
+			"    iou=${6:0.7},  # (float) intersection over union (IoU) threshold for NMS",
+			"    vid_stride=${7:1},  # (int) video frame-rate stride",
+			"    stream_buffer=${8:False},  # (bool) buffer all streaming frames (True) or return the most recent frame (False)",
+			"    visualize=${9:False},  # (bool) visualize model features",
+			"    augment=${10:False},  # (bool) apply image augmentation to prediction sources",
+			"    agnostic_nms=${11:False},  # (bool) class-agnostic NMS",
+			"    classes=${12:None},  # (int | list[int], optional) filter results by class, i.e. classes=0, or classes=[0,2,3]",
+			"    retina_masks=${13:False},  # (bool) use high-resolution segmentation masks",
+			"    embed=${14:None},  # (list[int], optional) return feature vectors/embeddings from given layers",
+			"    show=${15:False},  # (bool) show predicted images and videos if environment allows",
+			"    save_frames=${16:False},  # (bool) save predicted individual video frames",
+			"    save_txt=${17:False},  # (bool) save results as .txt file",
+			"    save_conf=${18:False},  # (bool) save results with confidence scores",
+			"    save_crop=${19:False},  # (bool) save cropped images with results",
+			")",
+			"# reference https://docs.ultralytics.com/modes/predict/"
+		],
+		"description": "Setup Ultralytics YOLO to perform inference, show all inference keyword arguments and their default values."
 	}
 
 }

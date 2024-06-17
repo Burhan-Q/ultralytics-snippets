@@ -12,8 +12,26 @@
 			"for result in results:",
 			"    print(result.boxes.data)",
 			"    # result.show()  # uncomment to view each result image",
-			"    $0"
+			"    $0",
+			"    # reference https://docs.ultralytics.com/modes/predict/ for more information."
 		],
 		"description": "Ultralytics basic YOLO object detection predict example."
+	},
+
+	"Ultralytics Predict Filter Classes":{
+		"prefix": "ultra.example-predict-filter-class",
+		"body": [
+			"from ultralytics import YOLO, ASSETS",
+			"",
+			"model = YOLO(\"yolov8${1|n,s,m,l,x|}.pt\", task=\"detect\")",
+			"results = model(source=ASSETS / \"bus.jpg\", classes=[0, 5])  # keep person and bus classes only",
+			"",
+			"for result in results:",
+			"    print(result.boxes.data)",
+			"    # result.show()  # uncomment to view each result image",
+			"    $0",
+			"    # reference https://docs.ultralytics.com/modes/predict/ for more information."
+		],
+		"description": "Ultralytics basic YOLO object detection predict with filtered classes example."
 	}
 }

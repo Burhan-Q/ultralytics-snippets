@@ -1,6 +1,13 @@
 # Ultralytics Snippets for VSCode
 
-A python snippets extension for VSCode to assist with development using the Ultralytics package. 
+<div align="center">
+  <p>
+    <a href="https://github.com/ultralytics/assets/releases/tag/v8.2.0" target="_blank">
+      <img width="80%" src="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" alt="YOLO Vision banner"></a>
+  </p>
+</div>
+
+A python snippets extension for VSCode to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀
 
 ## Syntax
 
@@ -47,6 +54,7 @@ These snippets will provide shortcuts for working with `ultralytics.engine.resul
 | `ultra.results-masks-contours` | Get segmentation contours with pixel value xy or normalized xyn coordinates.                                     |
 | `ultra.results-obb-xywhr`      | Get OBB rotated bounding boxes in pixel value [x, y, w, h, r] coordinates as torch.Tensor array.                 |
 | `ultra.results-orig-image`     | Get original image from a single image result.                                                                   |
+| `ultra.results-filter-class`   | Filter prediction results by class ID. Using `classes` keyword argument for prediction should be preferred.      |
 
 ### Snippet Example
 
@@ -64,16 +72,17 @@ for result in results:
 
 Quickly set up an [Ultralytics model][models], like [YOLOv8] to work with for various [modes][_modes]. 
 
-| Alias                      | Description                                        | Reference                |
-| -------------------------- | -------------------------------------------------- | ------------------------ |
-| `ultra.yolo-predict`       | Setup Ultralytics YOLO to perform inference.       | [predict mode][_predict] |
-| `ultra.yolo-val`           | Setup Ultralytics YOLO to perform validation.      | [val mode][_val]         |
-| `ultra.yolo-train`         | Setup Ultralytics YOLO to perform training.        | [train mode][_train]     |
-| `ultra.sam-predict`        | Setup Ultralytics SAM to perform inference.        | [SAM]                    |
-| `ultra.mobile-sam-predict` | Setup Ultralytics MobileSAM to perform inference.  | [Mobile SAM]             |
-| `ultra.fast-sam-predict`   | Setup Ultralytics FastSAM to perform inference.    | [FastSAM][fast sam]      |
-| `ultra.nas-predict`        | Setup Ultralytics NAS to perform inference.        | [YOLO NAS]               |
-| `ultra.rtdetr-predict`     | Setup Ultralytics RT-DETR to perform inference.    | [RTDETR]                 |
+| Alias                       | Description                                                                                                 | Reference                |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------ |
+| `ultra.yolo-predict`        | Setup Ultralytics YOLO to perform inference.                                                                | [predict mode][_predict] |
+| `ultra.yolo-val`            | Setup Ultralytics YOLO to perform validation.                                                               | [val mode][_val]         |
+| `ultra.yolo-train`          | Setup Ultralytics YOLO to perform training.                                                                 | [train mode][_train]     |
+| `ultra.yolo-predict-kwords` | Setup Ultralytics YOLO to perform inference, show all inference keyword arguments and their default values. | [predict mode][_predict] |
+| `ultra.sam-predict`         | Setup Ultralytics SAM to perform inference.                                                                 | [SAM]                    |
+| `ultra.mobile-sam-predict`  | Setup Ultralytics MobileSAM to perform inference.                                                           | [Mobile SAM]             |
+| `ultra.fast-sam-predict`    | Setup Ultralytics FastSAM to perform inference.                                                             | [FastSAM][fast sam]      |
+| `ultra.nas-predict`         | Setup Ultralytics NAS to perform inference.                                                                 | [YOLO NAS]               |
+| `ultra.rtdetr-predict`      | Setup Ultralytics RT-DETR to perform inference.                                                             | [RTDETR]                 |
 
 ## Utilities
 
@@ -103,9 +112,10 @@ auto_annotate(data="", det_model="yolov8n.pt", sam_model="sam_b.pt", device="cud
 
 The Example snippets are more "complete" blocks of code that can be used for boilerplate demonstrations.
 
-| Alias                  | Description                                                                                                      |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| ultra.example-predict  | Ultralytics basic YOLO object detection predict example.                                                         |
+| Alias                                | Description                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------ |
+| `ultra.example-predict`              | Ultralytics basic YOLO object detection predict example.                       |
+| `ultra.example-predict-filter-class` | Ultralytics basic YOLO object detection predict with filtered classes example. |
 
 <details><summary><code>ultra.example-predict</code> Snippet</summary>
 <p>

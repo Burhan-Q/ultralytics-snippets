@@ -41,6 +41,7 @@ def parse_json_files(directory):
 
     # Parse each json file
     for file in json_files:
+        print(f"Reading {file}")
         with open(file) as f:
             data = json.load(f, cls=JSONDecoderWithComments)
 
