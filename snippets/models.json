@@ -131,7 +131,7 @@
 			"    save_conf=${18:False},  # (bool) save results with confidence scores",
 			"    save_crop=${19:False},  # (bool) save cropped images with results",
 			")",
-			"# reference https://docs.ultralytics.com/modes/predict/",
+			"# reference https://docs.ultralytics.com/modes/predict/"
 		],
 		"description": "Setup Ultralytics YOLO to perform inference, show all inference keyword arguments and their default values."
 	}
