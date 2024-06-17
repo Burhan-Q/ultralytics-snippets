@@ -19,7 +19,7 @@
 	},
 
 	"Ultralytics Predict Filter Classes":{
-		"prefix": "u.example-predict-filter-class",
+		"prefix": "ultra.example-predict-filter-class",
 		"body": [
 			"from ultralytics import YOLO, ASSETS",
 			"",
