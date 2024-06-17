@@ -32,6 +32,6 @@
 			"    $0",
 			"    # reference https://docs.ultralytics.com/modes/predict/ for more information."
 		],
-		"description": "Ultralytics basic YOLO object detection predict example."
+		"description": "Ultralytics basic YOLO object detection predict with filtered classes example."
 	}
 }
