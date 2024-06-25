@@ -6,8 +6,12 @@
 		"body": [
 			"from ultralytics import YOLO",
 			"",
+			"'''",
+			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
+			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
+			"'''",
 			"src = ${1:None}",
-			"model = YOLO(\"yolov${2|5,8,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
 			"results: list = model.predict(source=src)",
 			"# reference https://docs.ultralytics.com/modes/predict/"
 		],
@@ -19,8 +23,12 @@
 		"body": [
 			"from ultralytics import YOLO",
 			"",
+			"'''",
+			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
+			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
+			"'''",
 			"my_data = \"${1:coco8.yaml}\"",
-			"model = YOLO(\"yolov${2|5,8,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
 			"results = model.val(data=my_data)",
 			"# reference https://docs.ultralytics.com/modes/val/"
 		],
@@ -32,8 +40,12 @@
 		"body": [
 			"from ultralytics import YOLO",
 			"",
+			"'''",
+			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
+			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
+			"'''",
 			"my_data = \"${1:coco8.yaml}\"",
-			"model = YOLO(\"yolov${2|5,8,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
 			"results = model.train(data=my_data)",
 			"# reference https://docs.ultralytics.com/modes/train/"
 		],
@@ -111,6 +123,10 @@
 		"body":[
 			"from ultralytics import YOLO",
 			"",
+			"'''",
+			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
+			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
+			"'''",
 			"src = ${1:None}",
 			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
 			"results: list = model.predict(",
