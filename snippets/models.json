@@ -1,155 +1,64 @@
 // Ultralytics YOLO 🚀, AGPL-3.0 license
 
 {
-	"Ultralytics YOLO Predict": {
-		"prefix": "ultra.yolo-predict",
+	
+	"Ultralytics YOLO Model": {
+		"prefix": "ultra.yolo-model",
 		"body": [
-			"from ultralytics import YOLO",
-			"",
 			"'''",
 			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
 			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
 			"'''",
-			"src = ${1:None}",
 			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
-			"results: list = model.predict(source=src)",
-			"# reference https://docs.ultralytics.com/modes/predict/"
+			"# reference https://docs.ultralytics.com/models"
 		],
-		"description": "Setup Ultralytics YOLO to perform inference."
+		"description": "Initialize YOLO model."
 	},
 
-	"Ultralytics YOLO Validation": {
-		"prefix": "ultra.yolo-val",
+	"Ultralytics SAM Model": {
+		"prefix": "ultra.sam-model",
 		"body": [
-			"from ultralytics import YOLO",
-			"",
-			"'''",
-			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
-			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
-			"'''",
-			"my_data = \"${1:coco8.yaml}\"",
-			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
-			"results = model.val(data=my_data)",
-			"# reference https://docs.ultralytics.com/modes/val/"
-		],
-		"description": "Setup Ultralytics YOLO to perform validation."
-	},
-
-	"Ultralytics YOLO Train": {
-		"prefix": "ultra.yolo-train",
-		"body": [
-			"from ultralytics import YOLO",
-			"",
-			"'''",
-			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
-			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
-			"'''",
-			"my_data = \"${1:coco8.yaml}\"",
-			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
-			"results = model.train(data=my_data)",
-			"# reference https://docs.ultralytics.com/modes/train/"
-		],
-		"description": "Setup Ultralytics YOLO to perform training."
-	},
-
-	"Ultralytics SAM Predict": {
-		"prefix": "ultra.sam-predict",
-		"body": [
-			"from ultralytics import SAM",
-			"",
-			"src = ${1:None}",
-			"model = SAM(\"${2:sam_}${3|b,l|}.pt\")",
-			"results: list = model.predict(source=src)",
+			"model = SAM(\"${1:sam_}${1|b,l|}.pt\")",
 			"# reference https://docs.ultralytics.com/models/sam/"
 		],
-		"description": "Setup Ultralytics SAM to perform inference."
+		"description": "Shortcut to initialize SAM."
 	},
 
-	"Ultralytics MobileSAM Predict": {
-		"prefix": "ultra.mobile-sam-predict",
+	"Ultralytics MobileSAM Model": {
+		"prefix": "ultra.mobileam-model",
 		"body": [
-			"from ultralytics import SAM",
-			"",
-			"src = ${1:None}",
-			"model = SAM(\"mobile_sam.pt\")",
-			"results: list = model.predict(source=src)",
+			"model = SAM(\"mobile_sam${1|s,x|}.pt\")",
 			"# reference https://docs.ultralytics.com/models/mobile-sam/"
 		],
-		"description": "Setup Ultralytics MobileSAM to perform inference."
+		"description": "Shortcut to initialize MobileSAM."
 	},
 
-	"Ultralytics FastSAM Predict": {
-		"prefix": "ultra.fast-sam-predict",
+	"Ultralytics FastSAM Model": {
+		"prefix": "ultra.fastam-model",
 		"body": [
-			"from ultralytics import FastSAM",
-				"# from ultralytics.models.fastsam import FastSAMPrompt",
-			"",
-			"src = ${1:None}",
-			"model = FastSAM(\"mobile_sam${2|s,x|}.pt\")",
-			"results: list = model.predict(source=src)",
+			"model = FastSAM(\"FastSAM-${1|s,x|}.pt\")",
 			"# reference https://docs.ultralytics.com/models/fast-sam/"
 		],
-		"description": "Setup Ultralytics FastSAM to perform inference."
+		"description": "Shortcut to initialize FastSAM."
 	},
 
-	"Ultralytics NAS Predict": {
-		"prefix": "ultra.nas-predict",
+	"Ultralytics NAS Model": {
+		"prefix": "ultra.nas-model",
 		"body": [
-			"from ultralytics import NAS",
-			"",
-			"src = ${1:None}",
-			"model = NAS(\"yolo_nas_${2|s,m,l|}.pt\")",
-			"results: list = model.predict(source=src)",
+			"model = NAS(\"yolo_nas_${1|s,m,l|}.pt\")",
 			"# reference https://docs.ultralytics.com/models/yolo-nas"
 		],
-		"description": "Setup Ultralytics NAS to perform inference."
+		"description": "Shortcut to initialize YOLO-NAS model."
 	},
 
-	"Ultralytics RT-DETR Predict": {
-		"prefix": "ultra.rtdetr-predict",
+	"Ultralytics RTDETR Model": {
+		"prefix": "ultra.rtdetr-model",
 		"body": [
-			"from ultralytics import RTDETR",
-			"",
-			"src = ${1:None}",
 			"model = RTDETR(\"rtdetr-${2|l,x|}.pt\")",
-			"results: list = model.predict(source=src)",
 			"# reference https://docs.ultralytics.com/models/rtdetr/"
 		],
-		"description": "Setup Ultralytics RT-DETR to perform inference."
-	},
-
-	"Ultralytics YOLO Predict with keywords":{
-		"prefix": "ultra.yolo-predict-kwords",
-		"body":[
-			"from ultralytics import YOLO",
-			"",
-			"'''",
-			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
-			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
-			"'''",
-			"src = ${1:None}",
-			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
-			"results: list = model.predict(",
-			"    source=$1,  # (str, optional) source directory for images or videos",
-			"    conf=${5:0.25},  # (float) minimum confidence threshold",
-			"    iou=${6:0.7},  # (float) intersection over union (IoU) threshold for NMS",
-			"    vid_stride=${7:1},  # (int) video frame-rate stride",
-			"    stream_buffer=${8:False},  # (bool) buffer all streaming frames (True) or return the most recent frame (False)",
-			"    visualize=${9:False},  # (bool) visualize model features",
-			"    augment=${10:False},  # (bool) apply image augmentation to prediction sources",
-			"    agnostic_nms=${11:False},  # (bool) class-agnostic NMS",
-			"    classes=${12:None},  # (int | list[int], optional) filter results by class, i.e. classes=0, or classes=[0,2,3]",
-			"    retina_masks=${13:False},  # (bool) use high-resolution segmentation masks",
-			"    embed=${14:None},  # (list[int], optional) return feature vectors/embeddings from given layers",
-			"    show=${15:False},  # (bool) show predicted images and videos if environment allows",
-			"    save_frames=${16:False},  # (bool) save predicted individual video frames",
-			"    save_txt=${17:False},  # (bool) save results as .txt file",
-			"    save_conf=${18:False},  # (bool) save results with confidence scores",
-			"    save_crop=${19:False},  # (bool) save cropped images with results",
-			")",
-			"# reference https://docs.ultralytics.com/modes/predict/"
-		],
-		"description": "Setup Ultralytics YOLO to perform inference, show all inference keyword arguments and their default values."
+		"description": "Shortcut to initialize RTDETR model."
 	}
+
 
 }
