@@ -19,7 +19,7 @@ All snippets use the format:
 
 - `{PREFIX}` is always `ultra`
 
-- `{ROOT}` denotes a common "root" verb or noun such as `import` or `results`. There will always be _at least one_ root common with other snippets, but it's possible there could be more than one, such as `results-boxes`.
+- `{ROOT}` denotes a common "root" verb or noun such as `import` or `results`. There will always be _at least one_ root common with other snippets, but it's possible there could be more than one, such as `result-boxes`.
 
 - `{DESCRIPTOR}` will be related to the snippet functionality and all words will be separated with hyphens `-` the snippet alias.
 
@@ -38,27 +38,40 @@ Import snippets are for common objects that would be imported from the Ultralyti
 | `ultra.import-seg2bbox`     | Import Ultralytics function to convert segmentation contours into horizontal bounding boxes. |
 | `ultra.import-box-convert`  | Import Ultralytics function for converting bounding box coordinates.                         |
 | `ultra.import-formats`      | Import Ultralytics supported file formats constant.                                          |
+### Snippet Example
+
+<details><summary><code>ultra.import-model</code> Snippet</summary>
+<p>
+
+Drop-down select available for `Model` class to import.
+
+```py
+Model = "YOLO"
+from ultraltyics import f"{Model}"  # not intended to represent valid code
+```
+
+</p></details>
 
 ## Results
 
 These snippets will provide shortcuts for working with `ultralytics.engine.results.Results` objects returned from model inference. See the [Working with Results][pred results] of the documentation and the [Results class] reference page for more information.
 
-| Alias                          | Description                                                                                                      |
-| ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `ultra.results-class-strings`  | Convert class indices to class string names for a single image result.                                           |
-| `ultra.results-data`           | Get result data array of detections from a single image result.                                                  |
-| `ultra.results-loop`           | Iterate prediction results from an Ultralytics model.                                                            |
-| `ultra.results-boxes-xyxy`     | Get pixel-value (x1, y1, x2, y2) bounding box coordinates from a single image result.                            |
-| `ultra.results-boxes-xywh`     | Get pixel-value (x-center, y-center, w, h) bounding box coordinates from a single image result.                  |
-| `ultra.results-masks-binary`   | Get binary segmentation masks from a single image result. NOTE: [N, H, W] shape, with inference H, W dimensions. |
-| `ultra.results-masks-contours` | Get segmentation contours with pixel value xy or normalized xyn coordinates.                                     |
-| `ultra.results-obb-xywhr`      | Get OBB rotated bounding boxes in pixel value [x, y, w, h, r] coordinates as torch.Tensor array.                 |
-| `ultra.results-orig-image`     | Get original image from a single image result.                                                                   |
-| `ultra.results-filter-class`   | Filter prediction results by class ID. Using `classes` keyword argument for prediction should be preferred.      |
+| Alias                        | Description                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `ultra.result-class-str`     | Convert class indices to class string names for a single image result.                                             |
+| `ultra.result-data`          | Get result data array of detections from a single image result.                                                    |
+| `ultra.result-loop`          | Iterate prediction results from an Ultralytics model.                                                              |
+| `ultra.result-box-xyxy`      | Get pixel-value `(x1, y1, x2, y2)` bounding box coordinates from a single image result.                            |
+| `ultra.result-box-xywh`      | Get pixel-value `(x-center, y-center, w, h)` bounding box coordinates from a single image result.                  |
+| `ultra.result-mask-binary`   | Get binary segmentation masks from a single image result. NOTE: `[N, H, W]` shape, with inference H, W dimensions. |
+| `ultra.result-mask-contours` | Get segmentation contours with pixel value `xy` or normalized `xyn` coordinates.                                   |
+| `ultra.result-obb-xywhr`     | Get OBB rotated bounding boxes in pixel value `[x, y, w, h, r]` coordinates as torch.Tensor array.                 |
+| `ultra.result-orig-image`    | Get original image from a single image result.                                                                     |
+| `ultra.result-filter-class`  | Filter prediction results by class ID. Using `classes` keyword argument for prediction should be preferred.        |
 
 ### Snippet Example
 
-<details><summary><code>ultra.results-loop</code> Snippet</summary>
+<details><summary><code>ultra.result-loop</code> Snippet</summary>
 <p>
 
 ```py
@@ -66,23 +79,44 @@ for result in results:
     result.boxes.data  # torch.Tensor array
 ```
 
+**NOTE:** `results` is a placeholder and can be modified to match existing naming schema.
+
 </p></details>
 
 ## Models
 
-Quickly set up an [Ultralytics model][models], like [YOLOv8] to work with for various [modes][_modes]. 
+Shortcuts for initializing pretrained [Ultralytics models][models], like [YOLOv8].
 
-| Alias                       | Description                                                                                                 | Reference                |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------ |
-| `ultra.yolo-predict`        | Setup Ultralytics YOLO to perform inference.                                                                | [predict mode][_predict] |
-| `ultra.yolo-val`            | Setup Ultralytics YOLO to perform validation.                                                               | [val mode][_val]         |
-| `ultra.yolo-train`          | Setup Ultralytics YOLO to perform training.                                                                 | [train mode][_train]     |
-| `ultra.yolo-predict-kwords` | Setup Ultralytics YOLO to perform inference, show all inference keyword arguments and their default values. | [predict mode][_predict] |
-| `ultra.sam-predict`         | Setup Ultralytics SAM to perform inference.                                                                 | [SAM]                    |
-| `ultra.mobile-sam-predict`  | Setup Ultralytics MobileSAM to perform inference.                                                           | [Mobile SAM]             |
-| `ultra.fast-sam-predict`    | Setup Ultralytics FastSAM to perform inference.                                                             | [FastSAM][fast sam]      |
-| `ultra.nas-predict`         | Setup Ultralytics NAS to perform inference.                                                                 | [YOLO NAS]               |
-| `ultra.rtdetr-predict`      | Setup Ultralytics RT-DETR to perform inference.                                                             | [RTDETR]                 |
+| Alias                  | Description                            | Reference                                             |
+| ---------------------- | -------------------------------------- | ----------------------------------------------------- |
+| `ultra.yolo-model`     | Shortcut to initialize YOLO model.     | [YOLOv5], [YOLOv8], [YOLOv9], [YOLOv10], [YOLO-World] |
+| `ultra.sam-model`      | Shortcut to initialize SAM.            | [SAM]                                                 |
+| `ultra.mobileam-model` | Shortcut to initialize MobileSAM.      | [Mobile SAM]                                          |
+| `ultra.fastam-model`   | Shortcut to initialize FastSAM.        | [FastSAM]                                             |
+| `ultra.nas-model`      | Shortcut to initialize YOLO-NAS model. | [YOLO-NAS]                                            |
+| `ultra.rtdetr-model`   | Shortcut to initialize RTDETR model.   | [RTDETR]                                              |
+### Snippet Example
+
+<details><summary><code>ultra.yolo-model</code> Snippet</summary>
+<p>
+
+Drop-down select available for `version`, `scale`, and `task`, equivalent python code shown below
+
+```py
+version = 8
+scale = "s"
+task = "."  # detect
+model = YOLO(f"yolov{version}{scale}{task}pt")
+
+version = 9
+scale = "e"
+task = "-seg."  # segment
+model = YOLO(f"yolov{version}{scale}{task}pt")
+```
+
+**NOTE:** It will be possible to create combinations that aren't available, such as `yolov8n-worldv2.pt`. User is responsible for creating a valid configuration per documentation. 
+
+</p></details>
 
 ## Utilities
 
@@ -112,10 +146,20 @@ auto_annotate(data="", det_model="yolov8n.pt", sam_model="sam_b.pt", device="cud
 
 The Example snippets are more "complete" blocks of code that can be used for boilerplate demonstrations.
 
-| Alias                                | Description                                                                    |
-| ------------------------------------ | ------------------------------------------------------------------------------ |
-| `ultra.example-predict`              | Ultralytics basic YOLO object detection predict example.                       |
-| `ultra.example-predict-filter-class` | Ultralytics basic YOLO object detection predict with filtered classes example. |
+| Prefix                               | Description                                                                                                     |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| `ultra.example-predict-filter-class` | Ultralytics basic YOLO object detection predict with filtered classes example.                                  |
+| `ultra.example-result-filter-class`  | Filter prediction results by class ID. Using "classes" keyword argument for prediction should be preferred.     |
+| `ultra.example-yolo-predict`         | Setup Ultralytics YOLO to perform predict (simple).                                                             |
+| `ultra.example-yolo-val`             | Setup Ultralytics YOLO to perform validation (simple).                                                          |
+| `ultra.example-yolo-train`           | Setup Ultralytics YOLO to perform training (simple).                                                            |
+| `ultra.example-yolo-predict-kwords`  | Setup Ultralytics YOLO to perform inference, show **all** inference keyword arguments and their default values. |
+| `ultra.example-yolo-train-kwords`    | Setup Ultralytics YOLO for training, with **all** keyword arguments and their default values.                   |
+| `ultra.example-sam-predict`          | Setup Ultralytics SAM to perform inference (simple).                                                            |
+| `ultra.example-mobile-sam-predict`   | Setup Ultralytics MobileSAM to perform inference (simple).                                                      |
+| `ultra.example-fast-sam-predict`     | Setup Ultralytics FastSAM to perform inference (simple).                                                        |
+| `ultra.example-nas-predict`          | Setup Ultralytics NAS to perform inference (simple).                                                            |
+| `ultra.example-rtdetr-predict`       | Setup Ultralytics RT-DETR to perform inference (simple).                                                        |
 
 <details><summary><code>ultra.example-predict</code> Snippet</summary>
 <p>
@@ -131,7 +175,7 @@ for result in results:
     # result.show()  # uncomment to view each result image
 ```
 
-**NOTE**: Here, the only configurable option is the model scale, `n`, `s`, `m`, `l`, or `x`.
+**NOTE**: Here, the only configurable option is the model scale which can be any one of: `n`, `s`, `m`, `l`, or `x`.
 
 </p></details>
 
@@ -143,12 +187,16 @@ for result in results:
 [_predict]: https://docs.ultralytics.com/modes/predict
 [_train]: https://docs.ultralytics.com/modes/train
 [_val]: https://docs.ultralytics.com/modes/val
-[yolov8]: https://docs.ultralytics.com/models/yolov8
-[sam]: https://docs.ultralytics.com/models/sam
-[mobile sam]: https://docs.ultralytics.com/models/mobile-sam
-[fast sam]: https://docs.ultralytics.com/models/fast-sam
-[yolo nas]: https://docs.ultralytics.com/models/yolo-nas
-[rtdetr]: https://docs.ultralytics.com/models/rtdetr
+[YOLOv8]: https://docs.ultralytics.com/models/yolov8
+[YOLOv5]: https://docs.ultralytics.com/models/yolov5
+[YOLOv9]: https://docs.ultralytics.com/models/yolov9
+[YOLOv10]: https://docs.ultralytics.com/models/yolov10
+[YOLO-World]: https://docs.ultralytics.com/models/yolo-world
+[SAM]: https://docs.ultralytics.com/models/sam
+[Mobile SAM]: https://docs.ultralytics.com/models/mobile-sam
+[FastSAM]: https://docs.ultralytics.com/models/fast-sam
+[YOLO-NAS]: https://docs.ultralytics.com/models/yolo-nas
+[RTDETR]: https://docs.ultralytics.com/models/rtdetr
 [pred results]: https://docs.ultralytics.com/modes/predict/#working-with-results
 [results class]: https://docs.ultralytics.com/reference/engine/results/
 [auto ann]: https://docs.ultralytics.com/reference/data/annotator/
