@@ -168,6 +168,8 @@ The Example snippets are more "complete" blocks of code that can be used for boi
 | `ultra.example-nas-predict`          | Setup Ultralytics NAS to perform inference (simple).                                                            |
 | `ultra.example-rtdetr-predict`       | Setup Ultralytics RT-DETR to perform inference (simple).                                                        |
 
+### Snippet Example
+
 <details><summary><code>ultra.example-predict</code> Snippet</summary>
 <p>
 
