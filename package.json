@@ -1,12 +1,12 @@
 {
 	"name": "ultralytics-snippets",
 	"displayName": "Ultralytics Snippets",
-	"description": "Snippets to use with the Ultralytics python library.",
-	"version": "0.0.1",
+	"description": "Snippets to use with the Ultralytics Python library.",
+	"version": "0.1.0",
 	"publisher": "Ultralytics",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ultralytics/ultralytics-snippets.git"
+        "url": "https://github.com/Burhan-Q/ultralytics-snippets.git"
     },
     "license": "AGPL-3.0-only",
     "icon": "images/Ultralytics-logomark-color.png",
@@ -14,7 +14,7 @@
         "name": "Burhan Qaddoumi"
     },
     "galleryBanner": {
-        "color": "#042AFF",
+        "color": "#111F68",
         "theme": "dark"
     },
 	"engines": {
