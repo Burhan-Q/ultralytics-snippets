@@ -9,6 +9,13 @@
 
 A python snippets extension for VSCode to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀
 
+<div align="center">
+  <p>
+    <img src="https://github.com/Burhan-Q/ultralytics-snippets/assets/62214284/42ad0b17-e752-479c-9c6c-e451fffbe8b3" alt="Snippet Prediction Preview">
+    <strong>NOTE:</strong> Tab-completion used to complete snippet and quickly hop into fields.
+  </p>
+</div>
+
 ## Syntax
 
 All snippets use the format:
