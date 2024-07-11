@@ -7,7 +7,7 @@
   </p>
 </div>
 
-A python snippets extension for VSCode to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀
+A [Python snippets extension for VSCode](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀
 
 <div align="center">
   <p>
@@ -107,7 +107,7 @@ Shortcuts for initializing pretrained [Ultralytics models][models], like [YOLOv8
 <details><summary><code>ultra.yolo-model</code> Snippet</summary>
 <p>
 
-Drop-down select available for `version`, `scale`, and `task`, equivalent python code shown below
+Drop-down select available for `version`, `scale`, and `task`, equivalent Python code shown below
 
 ```py
 version = 8
