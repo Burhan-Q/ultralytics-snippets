@@ -45,6 +45,7 @@ Import snippets are for common objects that would be imported from the Ultralyti
 | `ultra.import-seg2bbox`     | Import Ultralytics function to convert segmentation contours into horizontal bounding boxes. |
 | `ultra.import-box-convert`  | Import Ultralytics function for converting bounding box coordinates.                         |
 | `ultra.import-formats`      | Import Ultralytics supported file formats constant.                                          |
+
 ### Snippet Example
 
 <details><summary><code>ultra.import-model</code> Snippet</summary>
@@ -102,6 +103,7 @@ Shortcuts for initializing pretrained [Ultralytics models][models], like [YOLOv8
 | `ultra.fastam-model`   | Shortcut to initialize FastSAM.        | [FastSAM]                                             |
 | `ultra.nas-model`      | Shortcut to initialize YOLO-NAS model. | [YOLO-NAS]                                            |
 | `ultra.rtdetr-model`   | Shortcut to initialize RTDETR model.   | [RTDETR]                                              |
+
 ### Snippet Example
 
 <details><summary><code>ultra.yolo-model</code> Snippet</summary>
@@ -147,7 +149,6 @@ auto_annotate(data="", det_model="yolov8n.pt", sam_model="sam_b.pt", device="cud
 **NOTE**: Each function argument will be a "field" that can be tabbed into and changed. The `det_model`, `sam_model`, and `device` arguments will have options for default models, but can be cleared to input custom strings instead.
 
 </p></details>
-
 
 ## Examples
 
