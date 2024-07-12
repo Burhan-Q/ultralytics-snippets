@@ -16,6 +16,32 @@
 		"description": "Initialize YOLO model."
 	},
 
+	"Ultralytics YOLO Export": {
+		"prefix": "ultra.yolo-export",
+		"body": [
+			"from ultralytics import YOLO",
+			"",
+			"model = YOLO(\"${1:yolov8n.pt}\", task=\"${2|detect,segment,pose,obb,classify|}\")",
+			"out_file = model.export(",
+			"    format=\"${3|torchscript,onnx,openvino,engine,coreml,pb,tflite,edgetpu,tfjs,paddle,ncnn|}\",",
+			"    imgsz=${4:640},         # (int | list) input images size for exported model",
+			"    batch=${5:1},           # (int) batch size for exported model",
+			"    keras=${6|False,True|},       # (bool) use Keras",
+			"    optimize=${7|False,True|},    # (bool) TorchScript: optimize for mobile",
+			"    half=${8|False,True|},        # (bool) ONNX/TF/TensorRT: FP16 quantization",
+			"    int8=${9|False,True|},        # (bool) CoreML/TF/TensorRT/OpenVino INT8 quantization",
+			"    dynamic=${10|False,True|},     # (bool) ONNX/TF/TensorRT: dynamic axes",
+			"    simplify=${11|False,True|},    # (bool) ONNX: simplify model using `onnxslim`",
+			"    opset=${12:None},        # (int, optional) ONNX: opset version",
+			"    workspace=${13:4},       # (int) TensorRT: workspace size (GiB)",
+			"    nms=${14|False,True|},         # (bool) CoreML: add NMS",
+			")",
+			"# reference https://docs.ultralytics.com/modes/export",
+			"$0"
+		],
+		"description": "Export YOLO model weights to a new format."
+	},
+
 	"Ultralytics SAM Model": {
 		"prefix": "ultra.sam-model",
 		"body": [
