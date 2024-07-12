@@ -98,6 +98,7 @@ Shortcuts for initializing pretrained [Ultralytics models][models], like [YOLOv8
 | Alias                  | Description                            | Reference                                             |
 | ---------------------- | -------------------------------------- | ----------------------------------------------------- |
 | `ultra.yolo-model`     | Shortcut to initialize YOLO model.     | [YOLOv5], [YOLOv8], [YOLOv9], [YOLOv10], [YOLO-World] |
+| `ultra.yolo-export`    | Shortcut to export YOLO model weights. | [Model Export]                                        |
 | `ultra.sam-model`      | Shortcut to initialize SAM.            | [SAM]                                                 |
 | `ultra.mobileam-model` | Shortcut to initialize MobileSAM.      | [Mobile SAM]                                          |
 | `ultra.fastam-model`   | Shortcut to initialize FastSAM.        | [FastSAM]                                             |
@@ -211,3 +212,4 @@ for result in results:
 [results class]: https://docs.ultralytics.com/reference/engine/results/
 [auto ann]: https://docs.ultralytics.com/reference/data/annotator/
 [divisible]: https://docs.ultralytics.com/reference/utils/ops/#ultralytics.utils.ops.make_divisible
+[Model Export]: https://docs.ultralytics.com/modes/export
