@@ -7,7 +7,7 @@
   </p>
 </div>
 
-A python snippets extension for VSCode to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀
+A [Python snippets extension for VSCode](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀
 
 <div align="center">
   <p>
@@ -45,6 +45,7 @@ Import snippets are for common objects that would be imported from the Ultralyti
 | `ultra.import-seg2bbox`     | Import Ultralytics function to convert segmentation contours into horizontal bounding boxes. |
 | `ultra.import-box-convert`  | Import Ultralytics function for converting bounding box coordinates.                         |
 | `ultra.import-formats`      | Import Ultralytics supported file formats constant.                                          |
+
 ### Snippet Example
 
 <details><summary><code>ultra.import-model</code> Snippet</summary>
@@ -97,17 +98,19 @@ Shortcuts for initializing pretrained [Ultralytics models][models], like [YOLOv8
 | Alias                  | Description                            | Reference                                             |
 | ---------------------- | -------------------------------------- | ----------------------------------------------------- |
 | `ultra.yolo-model`     | Shortcut to initialize YOLO model.     | [YOLOv5], [YOLOv8], [YOLOv9], [YOLOv10], [YOLO-World] |
+| `ultra.yolo-export`    | Shortcut to export YOLO model weights. | [Model Export]                                        |
 | `ultra.sam-model`      | Shortcut to initialize SAM.            | [SAM]                                                 |
 | `ultra.mobileam-model` | Shortcut to initialize MobileSAM.      | [Mobile SAM]                                          |
 | `ultra.fastam-model`   | Shortcut to initialize FastSAM.        | [FastSAM]                                             |
 | `ultra.nas-model`      | Shortcut to initialize YOLO-NAS model. | [YOLO-NAS]                                            |
 | `ultra.rtdetr-model`   | Shortcut to initialize RTDETR model.   | [RTDETR]                                              |
+
 ### Snippet Example
 
 <details><summary><code>ultra.yolo-model</code> Snippet</summary>
 <p>
 
-Drop-down select available for `version`, `scale`, and `task`, equivalent python code shown below
+Drop-down select available for `version`, `scale`, and `task`, equivalent Python code shown below
 
 ```py
 version = 8
@@ -147,7 +150,6 @@ auto_annotate(data="", det_model="yolov8n.pt", sam_model="sam_b.pt", device="cud
 **NOTE**: Each function argument will be a "field" that can be tabbed into and changed. The `det_model`, `sam_model`, and `device` arguments will have options for default models, but can be cleared to input custom strings instead.
 
 </p></details>
-
 
 ## Examples
 
@@ -210,3 +212,4 @@ for result in results:
 [results class]: https://docs.ultralytics.com/reference/engine/results/
 [auto ann]: https://docs.ultralytics.com/reference/data/annotator/
 [divisible]: https://docs.ultralytics.com/reference/utils/ops/#ultralytics.utils.ops.make_divisible
+[Model Export]: https://docs.ultralytics.com/modes/export

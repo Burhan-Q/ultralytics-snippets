@@ -9,17 +9,45 @@
 			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
 			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
 			"'''",
-			"model = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
-			"# reference https://docs.ultralytics.com/models"
+			"${1:model} = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"# reference https://docs.ultralytics.com/models",
+			"$0"
 		],
 		"description": "Initialize YOLO model."
+	},
+
+	"Ultralytics YOLO Export": {
+		"prefix": "ultra.yolo-export",
+		"body": [
+			"from ultralytics import YOLO",
+			"",
+			"model = YOLO(\"${1:yolov8n.pt}\", task=\"${2|detect,segment,pose,obb,classify|}\")",
+			"out_file = model.export(",
+			"    format=\"${3|torchscript,onnx,openvino,engine,coreml,pb,tflite,edgetpu,tfjs,paddle,ncnn|}\",",
+			"    imgsz=${4:640},         # (int | list) input images size for exported model",
+			"    batch=${5:1},           # (int) batch size for exported model",
+			"    keras=${6|False,True|},       # (bool) use Keras",
+			"    optimize=${7|False,True|},    # (bool) TorchScript: optimize for mobile",
+			"    half=${8|False,True|},        # (bool) ONNX/TF/TensorRT: FP16 quantization",
+			"    int8=${9|False,True|},        # (bool) CoreML/TF/TensorRT/OpenVino INT8 quantization",
+			"    dynamic=${10|False,True|},     # (bool) ONNX/TF/TensorRT: dynamic axes",
+			"    simplify=${11|False,True|},    # (bool) ONNX: simplify model using `onnxslim`",
+			"    opset=${12:None},        # (int, optional) ONNX: opset version",
+			"    workspace=${13:4},       # (int) TensorRT: workspace size (GiB)",
+			"    nms=${14|False,True|},         # (bool) CoreML: add NMS",
+			")",
+			"# reference https://docs.ultralytics.com/modes/export",
+			"$0"
+		],
+		"description": "Export YOLO model weights to a new format."
 	},
 
 	"Ultralytics SAM Model": {
 		"prefix": "ultra.sam-model",
 		"body": [
-			"model = SAM(\"${1:sam_}${1|b,l|}.pt\")",
-			"# reference https://docs.ultralytics.com/models/sam/"
+			"${1:model} = SAM(\"sam_${2|b,l|}.pt\")",
+			"# reference https://docs.ultralytics.com/models/sam/",
+			"$0"
 		],
 		"description": "Shortcut to initialize SAM."
 	},
@@ -27,8 +55,9 @@
 	"Ultralytics MobileSAM Model": {
 		"prefix": "ultra.mobileam-model",
 		"body": [
-			"model = SAM(\"mobile_sam${1|s,x|}.pt\")",
-			"# reference https://docs.ultralytics.com/models/mobile-sam/"
+			"${1:model} = SAM(\"mobile_sam${2|s,x|}.pt\")",
+			"# reference https://docs.ultralytics.com/models/mobile-sam/",
+			"$0"
 		],
 		"description": "Shortcut to initialize MobileSAM."
 	},
@@ -36,8 +65,9 @@
 	"Ultralytics FastSAM Model": {
 		"prefix": "ultra.fastam-model",
 		"body": [
-			"model = FastSAM(\"FastSAM-${1|s,x|}.pt\")",
-			"# reference https://docs.ultralytics.com/models/fast-sam/"
+			"${1:model} = FastSAM(\"FastSAM-${2|s,x|}.pt\")",
+			"# reference https://docs.ultralytics.com/models/fast-sam/",
+			"$0"
 		],
 		"description": "Shortcut to initialize FastSAM."
 	},
@@ -45,8 +75,9 @@
 	"Ultralytics NAS Model": {
 		"prefix": "ultra.nas-model",
 		"body": [
-			"model = NAS(\"yolo_nas_${1|s,m,l|}.pt\")",
-			"# reference https://docs.ultralytics.com/models/yolo-nas"
+			"${1:model} = NAS(\"yolo_nas_${2|s,m,l|}.pt\")",
+			"# reference https://docs.ultralytics.com/models/yolo-nas",
+			"$0"
 		],
 		"description": "Shortcut to initialize YOLO-NAS model."
 	},
@@ -54,8 +85,9 @@
 	"Ultralytics RTDETR Model": {
 		"prefix": "ultra.rtdetr-model",
 		"body": [
-			"model = RTDETR(\"rtdetr-${2|l,x|}.pt\")",
-			"# reference https://docs.ultralytics.com/models/rtdetr/"
+			"${1:model} = RTDETR(\"rtdetr-${2|l,x|}.pt\")",
+			"# reference https://docs.ultralytics.com/models/rtdetr/",
+			"$0"
 		],
 		"description": "Shortcut to initialize RTDETR model."
 	}

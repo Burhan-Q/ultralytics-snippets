@@ -188,6 +188,7 @@
 			"    save_txt=${19:False},      # (bool) save results as .txt file",
 			"    save_conf=${20:False},     # (bool) save results with confidence scores",
 			"    save_crop=${21:False},     # (bool) save cropped images with results",
+			"    stream=${22:False}         # (bool) for processing long videos or numerous images with reduced memory usage by returning a generator",
 			")",
 			"# reference https://docs.ultralytics.com/modes/predict/"
 		],
