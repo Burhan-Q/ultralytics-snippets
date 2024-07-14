@@ -90,6 +90,18 @@
 			"$0"
 		],
 		"description": "Shortcut to initialize RTDETR model."
+	},
+
+	"Ultralytics YOLO-World Model w/ Prompts": {
+		"prefix": "ultra.yolo-world-model",
+		"body": [
+			"${1:model} = YOLO(\"yolov8${2|s,m,l,x|}-${3|world,worldv2|}.pt\")",
+			"# configure custom classes with text prompts",
+			"$1.set_classes([${4:\"\"}])  # list of strings, with \"\" being a 'background' class",
+			"# reference https://docs.ultralytics.com/models/yolo-world/",
+			"$0"
+		],
+		"description": "Shortcut to initialize YOLO-World model with text prompts."
 	}
 
 
