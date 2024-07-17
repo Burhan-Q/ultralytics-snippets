@@ -189,6 +189,7 @@
 			"    save_conf=${20:False},     # (bool) save results with confidence scores",
 			"    save_crop=${21:False},     # (bool) save cropped images with results",
 			"    stream=${22:False}         # (bool) for processing long videos or numerous images with reduced memory usage by returning a generator",
+			"    verbose=${23:True}         # (bool) enable/disable verbose inference logging in the terminal",
 			")",
 			"# reference https://docs.ultralytics.com/modes/predict/"
 		],
@@ -275,7 +276,7 @@
 			"    erasing=${67:0.4},                # (float) probability of random erasing during classification training (0-0.9), 0 means no erasing, must be less than 1.0.",
 			"    crop_fraction=${68:1.0},          # (float) image crop fraction for classification (0.1-1), 1.0 means no crop, must be greater than 0.",
 			")",
-			"# reference https://docs.ultralytics.com/modes/predict/"
+			"# reference https://docs.ultralytics.com/modes/train/"
 		],
 		"description": "Setup Ultralytics YOLO for training, with all keyword arguments and their default values."
 	}

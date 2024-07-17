@@ -16,7 +16,39 @@ A [Python snippets extension for VSCode](https://marketplace.visualstudio.com/it
   </p>
 </div>
 
-## Syntax
+## Installation
+
+### From the Web
+
+#### Method-1
+
+1. Visit the VSCode Extension Market place by going to https://marketplace.visualstudio.com/VSCode and search for `Ultralytics-Snippets`.
+
+#### Method-2
+
+1. Follow [this link](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to visit the extension page directly.
+
+2. Click the "Install" button and allow your browser to launch a VSCode session.
+
+    ![VSCode marketplace extension install](https://github.com/user-attachments/assets/b40cc8e2-2353-4165-859a-c84eec070db6)
+
+### From VSCode
+
+1. Navigate to the Extensions menu, and search for `Ultralytics-Snippets`.
+
+2. Click the "Install" button.
+
+    ![VSCode extension menu](https://github.com/user-attachments/assets/9de46d22-ef7b-4765-ba2c-d0459cafa4dc)
+
+### From the CLI
+
+You can also install the latest version of the `Ultralytics-Snippets` VSCode extension using the following command.
+
+```sh
+code --install-extension ultralytics.ultralytics-snippets
+```
+
+## Snippets Syntax
 
 All snippets use the format:
 
@@ -95,15 +127,16 @@ for result in results:
 
 Shortcuts for initializing pretrained [Ultralytics models][models], like [YOLOv8].
 
-| Alias                  | Description                            | Reference                                             |
-| ---------------------- | -------------------------------------- | ----------------------------------------------------- |
-| `ultra.yolo-model`     | Shortcut to initialize YOLO model.     | [YOLOv5], [YOLOv8], [YOLOv9], [YOLOv10], [YOLO-World] |
-| `ultra.yolo-export`    | Shortcut to export YOLO model weights. | [Model Export]                                        |
-| `ultra.sam-model`      | Shortcut to initialize SAM.            | [SAM]                                                 |
-| `ultra.mobileam-model` | Shortcut to initialize MobileSAM.      | [Mobile SAM]                                          |
-| `ultra.fastam-model`   | Shortcut to initialize FastSAM.        | [FastSAM]                                             |
-| `ultra.nas-model`      | Shortcut to initialize YOLO-NAS model. | [YOLO-NAS]                                            |
-| `ultra.rtdetr-model`   | Shortcut to initialize RTDETR model.   | [RTDETR]                                              |
+| Alias                    | Description                                                  | Reference                                             |
+| ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------- |
+| `ultra.yolo-model`       | Shortcut to initialize YOLO model.                           | [YOLOv5], [YOLOv8], [YOLOv9], [YOLOv10], [YOLO-World] |
+| `ultra.yolo-export`      | Shortcut to export YOLO model weights.                       | [Model Export]                                        |
+| `ultra.sam-model`        | Shortcut to initialize SAM.                                  | [SAM]                                                 |
+| `ultra.mobileam-model`   | Shortcut to initialize MobileSAM.                            | [Mobile SAM]                                          |
+| `ultra.fastam-model`     | Shortcut to initialize FastSAM.                              | [FastSAM]                                             |
+| `ultra.nas-model`        | Shortcut to initialize YOLO-NAS model.                       | [YOLO-NAS]                                            |
+| `ultra.rtdetr-model`     | Shortcut to initialize RTDETR model.                         | [RTDETR]                                              |
+| `ultra.yolo-world-model` | Shortcut to initialize YOLO-world model, with class prompts. | [YOLO-World]                                          |
 
 ### Snippet Example
 
