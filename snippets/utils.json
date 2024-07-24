@@ -6,7 +6,9 @@
 		"body": [
 			"from ultralytics.data.annotator import auto_annotate",
 			"",
-			"auto_annotate(data=\"$1\", det_model=\"yolov8${2|n,s,m,l,x|}.pt\", sam_model=\"${3|sam_b,sam_l,mobile_sam,FastSAM-s,FastSAM-x|}.pt\", device=\"${4|cuda,cpu|}\", output_dir=\"$5\")"
+			"auto_annotate(data=\"$1\", det_model=\"yolov8${2|n,s,m,l,x|}.pt\", sam_model=\"${3|sam_b,sam_l,mobile_sam,FastSAM-s,FastSAM-x|}.pt\", device=\"${4|cuda,cpu|}\", output_dir=\"$5\")",
+			"# Docs example https://docs.ultralytics.com/usage/simple-utilities/#auto-labeling-annotations",
+			"# auto_annotate function reference https://docs.ultralytics.com/reference/data/annotator/#ultralytics.data.annotator.auto_annotate"
 		],
 		"description": "Use Ultralytics auto_annotate function to generate annotations."
 	},
@@ -40,7 +42,9 @@
 			"        rotated=${14:False}",
 			"    )",
 			"",
-			"img_annotated = ann.result()"
+			"img_annotated = ann.result()",
+			"# Docs example https://docs.ultralytics.com/usage/simple-utilities/#drawing-annotations",
+			"# Annotator class reference https://docs.ultralytics.com/reference/utils/plotting/#ultralytics.utils.plotting.Annotator"
 		],
 		"description": "Use Ultralytics Annotator class to draw box annotations."
 	},
@@ -50,7 +54,9 @@
 		"body": [
 			"from ultralytics.utils.ops import make_divisible",
 			"",
-			"make_divisible(${1:width}, ${2:divisor})"
+			"make_divisible(${1:width}, ${2:divisor})",
+			"# docs examples https://docs.ultralytics.com/usage/simple-utilities/#make-divisible",
+			"# make_divisible function reference https://docs.ultralytics.com/reference/utils/ops/#ultralytics.utils.ops.make_divisible"
 		],
 		"description": "Use Ultralytics make_divisible function to make a number divisible by another."
 	},
@@ -58,7 +64,8 @@
 	"Ultralytics Set Callback": {
 		"prefix": "ultra.util-callback",
 		"body": [
-			"${1:model}.add_callback(\"${2|on_pretrain_routine_start,on_pretrain_routine_end,on_train_start,on_train_epoch_start,on_train_batch_start,optimizer_step,on_before_zero_grad,on_train_batch_end,on_train_epoch_end,on_fit_epoch_end,on_model_save,on_train_end,on_params_update,teardown,on_val_start,on_val_batch_start,on_val_batch_end,on_val_end,on_predict_start,on_predict_batch_start,on_predict_postprocess_end,on_predict_batch_end,on_predict_end,on_export_start,on_export_end|}\", ${3:callable})"
+			"${1:model}.add_callback(\"${2|on_pretrain_routine_start,on_pretrain_routine_end,on_train_start,on_train_epoch_start,on_train_batch_start,optimizer_step,on_before_zero_grad,on_train_batch_end,on_train_epoch_end,on_fit_epoch_end,on_model_save,on_train_end,on_params_update,teardown,on_val_start,on_val_batch_start,on_val_batch_end,on_val_end,on_predict_start,on_predict_batch_start,on_predict_postprocess_end,on_predict_batch_end,on_predict_end,on_export_start,on_export_end|}\", ${3:callable})",
+			"# See docs page on callbacks https://docs.ultralytics.com/usage/callbacks/ for more information"
 		],
 		"description": "Shortcut for adding custom model callback for a defined function."
 	}
