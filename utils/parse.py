@@ -2,20 +2,53 @@ import json
 from pathlib import Path
 from typing import LiteralString
 
-'''
-Write a python function to parse all the json files found in the snippets directory, and create a markdown formatted table from the "prefix" and "description" keys of each entry. The markdown table should calculate the max space needed for each column based on the contexts of the json file.
-'''
-
 class JSONDecoderWithComments(json.JSONDecoder):
+    """
+    A custom JSON decoder that removes comments from the input string before decoding.
+
+    This class extends the `json.JSONDecoder` class and overrides the `decode` method to remove comments
+    from the input string before decoding it into a Python object.
+
+    Attributes:
+        parse_comment (bool): Flag indicating whether to parse comments or not.
+
+    Methods:
+        decode(s, *args, **kwargs): Decodes the input string after removing comments.
+        strip_comments(s): Removes comments from the input string.
+    """
+    
+    
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.parse_comment = False
-
+    
+    
     def decode(self, s, *args, **kwargs) -> dict|list|str:
+        """
+        Decodes the input string after removing comments.
+
+        Args:
+            s (str): The input string to decode.
+            *args: Additional arguments to pass to the `json.JSONDecoder.decode` method.
+            **kwargs: Additional keyword arguments to pass to the `json.JSONDecoder.decode` method.
+
+        Returns:
+            dict|list|str: The decoded Python object.
+        """
         s = self.strip_comments(s)
         return super().decode(s, *args, **kwargs)
     
+
     def strip_comments(self, s) -> LiteralString:
+        """
+        Removes comments from the input string.
+
+        Args:
+            s (str): The input string to remove comments from.
+
+        Returns:
+            LiteralString: The input string with comments removed.
+        """
         lines = s.split("\n")
         stripped_lines = []
         for line in lines:
@@ -31,7 +64,17 @@ class JSONDecoderWithComments(json.JSONDecoder):
         return "\n".join(stripped_lines)
 
 
-def parse_json_files(directory):
+def parse_json_files(directory:str|Path) -> LiteralString | str:
+    """
+    Parses all JSON files in the specified directory and generates a markdown table.
+
+    Args:
+        directory (str or Path): The directory path containing the JSON files.
+
+    Returns:
+        LiteralString or str: The generated markdown table.
+    """
+
     table = []
     max_prefix_length = 0
     max_description_length = 0
@@ -68,6 +111,6 @@ def parse_json_files(directory):
     return markdown_table
 
 # Example usage
-directory = r"Q:\ML_dev\ultra_snippets\ultralytics-snippets\snippets"
+directory = Path.cwd() / "ultralytics-snippets/snippets"
 markdown_table = parse_json_files(directory)
 print(markdown_table)

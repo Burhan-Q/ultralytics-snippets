@@ -141,19 +141,18 @@
 		"body": [
 			"import numpy as np",
 			"from ultralytics import YOLO, ASSETS",
+			"from ultralytics.engine.results import Results, Boxes",
 			"",
 			"# NOTE class filtering should generally use the \"classes\" prediction argument.",
 			"# reference https://docs.ultralytics.com/modes/predict/#inference-arguments",
 			"",
 			"keep_classes = ${1:[0, 5]}  # person and bus classes",
-			"src=${2:ASSETS / \"bus.jpg\"}",
-			"model = YOLO(\"yolov8${3|n,s,m,l,x|}.pt\")",
-			"results = model.predict($2)  # use classes=$1 for filtering during prediction",
 			"",
-			"detections = results[0].boxes.data.cpu().numpy()",
-			"det_classes = detections[..., -2:]  # select only class indices",
-			"keep = np.isin(det_classes, keep_classes).any(axis=1)  # filter by class",
-			"filtered_detections = detections[keep]  # limit results to keep_classes only"
+			"model = YOLO(\"yolov8${2|n,s,m,l,x|}.pt\")",
+			"results:list[Results] = model.predict(ASSETS / \"bus.jpg\")  # use classes=$1 for filtering during prediction",
+			"",
+			"detections:Boxes = results[0].boxes.cpu().numpy()  # allows for access to all methods defined in Boxes",
+			"filtered_detections:Boxes = detections[np.isin(detections.cls, keep_classes)]  # limit results to keep_classes only"
 		],
 		"description": "Filter prediction results by class ID. Using \"classes\" keyword argument for prediction should be preferred."
 	},
@@ -279,5 +278,21 @@
 			"# reference https://docs.ultralytics.com/modes/train/"
 		],
 		"description": "Setup Ultralytics YOLO for training, with all keyword arguments and their default values."
+	},
+
+	"Ultralytics Add Custom Callback":{
+		"prefix":"ultra.example-callback",
+		"body":[
+			"from ultralytics import YOLO",
+			"",
+			"model = YOLO(\"${1:yolov8n.pt}\")",
+			"",
+			"def ${2:callback_function}():",
+    		"    ${3:pass}",
+			"",
+			"model.add_callback(\"${4|on_pretrain_routine_start,on_pretrain_routine_end,on_train_start,on_train_epoch_start,on_train_batch_start,optimizer_step,on_before_zero_grad,on_train_batch_end,on_train_epoch_end,on_fit_epoch_end,on_model_save,on_train_end,on_params_update,teardown,on_val_start,on_val_batch_start,on_val_batch_end,on_val_end,on_predict_start,on_predict_batch_start,on_predict_postprocess_end,on_predict_batch_end,on_predict_end,on_export_start,on_export_end|}\", $2)",
+			"# See docs page on callbacks https://docs.ultralytics.com/usage/callbacks/ for more information"
+		],
+		"description": "Example showing how to add a custom callback function."
 	}
 }
