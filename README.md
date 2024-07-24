@@ -7,7 +7,7 @@
   </p>
 </div>
 
-A [Python snippets extension for VSCode](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀
+A [Python snippets extension for VSCode](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀 Also works with [`neovim`](#use-with-neovim)!
 
 <div align="center">
   <p>
@@ -77,6 +77,7 @@ Import snippets are for common objects that would be imported from the Ultralyti
 | `ultra.import-seg2bbox`     | Import Ultralytics function to convert segmentation contours into horizontal bounding boxes. |
 | `ultra.import-box-convert`  | Import Ultralytics function for converting bounding box coordinates.                         |
 | `ultra.import-formats`      | Import Ultralytics supported file formats constant.                                          |
+| `ultra.import-task-result`  | Import task-based results class (generally helpful for type hinting).                        |
 
 ### Snippet Example
 
@@ -168,6 +169,7 @@ model = YOLO(f"yolov{version}{scale}{task}pt")
 | `ultra.util-auto-annotate`  | Use Ultralytics auto_annotate function to generate annotations.                | [`auto_annotator` fucntion][auto ann]  |
 | `ultra.util-annotator`      | Use Ultralytics Annotator class to draw box annotations                        | [`Annotator` class][ann]               |
 | `ultra.util-make-divisible` | Use Ultralytics make_divisible function to make a number divisible by another. | [`make_divisible` function][divisible] |
+| `ultra.util-callback`       | Shortcut for adding custom model callback for a defined function.              | [`callbacks`][callbacks]               |
 
 ### Snippet Example
 
@@ -202,6 +204,7 @@ The Example snippets are more "complete" blocks of code that can be used for boi
 | `ultra.example-fast-sam-predict`     | Setup Ultralytics FastSAM to perform inference (simple).                                                        |
 | `ultra.example-nas-predict`          | Setup Ultralytics NAS to perform inference (simple).                                                            |
 | `ultra.example-rtdetr-predict`       | Setup Ultralytics RT-DETR to perform inference (simple).                                                        |
+| `ultra.example-callback`             | Example showing how to add a custom callback function.                                                          |
 
 ### Snippet Example
 
@@ -223,6 +226,19 @@ for result in results:
 
 </p></details>
 
+
+## Use with `neovim`
+
+It's possible to use VSCode snippets by installing the [LuaSnip](https://github.com/L3MON4D3/LuaSnip) repo and then adding the following line into your configuration of `LuaSnip`:
+
+```
+require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./ultralytics-snippets/" }, include = { "python" } })
+```
+
+Make sure that the path `"./ultralytics-snippets/"` is valid for your install location. 
+
+> [!NOTE] 
+> If the snippets don't work, try removing the comment lines at the top of each JSON file. These are ignored by VSCode, but might not be ignored by `neovim` or `LuaSnip`.
 
 
 [ann]: https://docs.ultralytics.com/usage/simple-utilities/#drawing-annotations
@@ -246,3 +262,4 @@ for result in results:
 [auto ann]: https://docs.ultralytics.com/reference/data/annotator/
 [divisible]: https://docs.ultralytics.com/reference/utils/ops/#ultralytics.utils.ops.make_divisible
 [Model Export]: https://docs.ultralytics.com/modes/export
+[callbacks]: https://docs.ultralytics.com/usage/callbacks/
