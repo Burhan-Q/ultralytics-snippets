@@ -19,6 +19,12 @@
 		"description": "Import Ultralytics Results class (usually for type hinting)."
 	},
 
+	"Import Task Results": {
+		"prefix": "ultra.import-task-result",
+		"body": "from ultralytics.engine.results import ${1|Boxes,Masks,Probs,Keypoints,OBB|}",
+		"description": "Import task-based results class (generally helpful for type hinting)."
+	},
+
 	"Import Annotator": {
 		"prefix": "ultra.import-annotator",
 		"body": "from ultralytics.data.annotator import auto_annotate",
