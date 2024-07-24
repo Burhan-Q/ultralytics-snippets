@@ -1,4 +1,4 @@
-# Ultralytics Snippets for VSCode
+# Ultralytics Snippets for Visual Studio Code
 
 <div align="center">
   <p>
@@ -7,7 +7,7 @@
   </p>
 </div>
 
-A [Python snippets extension for VSCode](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀 Also works with [`neovim`](#use-with-neovim)!
+A [Python snippets extension for VS Code](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to assist with development using the [Ultralytics package](https://github.com/ultralytics/ultralytics). These snippets will help you code with Ultralytics faster and help provide some boilerplate examples to test out. Open an Issue or a Pull Request to have your snippet added! 🚀 Also works with [`neovim`](#use-with-neovim)!
 
 <div align="center">
   <p>
@@ -18,31 +18,33 @@ A [Python snippets extension for VSCode](https://marketplace.visualstudio.com/it
 
 ## Installation
 
+<img alt="Visual Studio Code Icon" src="https://code.visualstudio.com/assets/images/code-stable.png" width="20" height="20"> <a href="https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets"><img alt="Visual Studio Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/Ultralytics.ultralytics-snippets?label=Marketplace%20Downloads&color=blue"></a>
+
 ### From the Web
 
 #### Method-1
 
-1. Visit the VSCode Extension Market place by going to https://marketplace.visualstudio.com/VSCode and search for `Ultralytics-Snippets`.
+1. Visit the VS Code Extension Marketplace by going to https://marketplace.visualstudio.com/VSCode and search for `Ultralytics-Snippets`.
 
 #### Method-2
 
 1. Follow [this link](https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets) to visit the extension page directly.
 
-2. Click the "Install" button and allow your browser to launch a VSCode session.
+2. Click the "Install" button and allow your browser to launch a VS Code session.
 
-    ![VSCode marketplace extension install](https://github.com/user-attachments/assets/b40cc8e2-2353-4165-859a-c84eec070db6)
+    ![VS Code marketplace extension install](https://github.com/user-attachments/assets/b40cc8e2-2353-4165-859a-c84eec070db6)
 
-### From VSCode
+### From VS Code
 
 1. Navigate to the Extensions menu, and search for `Ultralytics-Snippets`.
 
 2. Click the "Install" button.
 
-    ![VSCode extension menu](https://github.com/user-attachments/assets/9de46d22-ef7b-4765-ba2c-d0459cafa4dc)
+    ![VS Code extension menu](https://github.com/user-attachments/assets/9de46d22-ef7b-4765-ba2c-d0459cafa4dc)
 
 ### From the CLI
 
-You can also install the latest version of the `Ultralytics-Snippets` VSCode extension using the following command.
+You can also install the latest version of the `Ultralytics-Snippets` VS Code extension using the following command.
 
 ```sh
 code --install-extension ultralytics.ultralytics-snippets
@@ -229,7 +231,7 @@ for result in results:
 
 ## Use with `neovim`
 
-It's possible to use VSCode snippets by installing the [LuaSnip](https://github.com/L3MON4D3/LuaSnip) repo and then adding the following line into your configuration of `LuaSnip`:
+It's possible to use VS Code snippets by installing the [LuaSnip](https://github.com/L3MON4D3/LuaSnip) repo and then adding the following line into your configuration of `LuaSnip`:
 
 ```
 require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./ultralytics-snippets/" }, include = { "python" } })
@@ -238,7 +240,7 @@ require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./ultralytics-snip
 Make sure that the path `"./ultralytics-snippets/"` is valid for your install location. 
 
 > [!NOTE] 
-> If the snippets don't work, try removing the comment lines at the top of each JSON file. These are ignored by VSCode, but might not be ignored by `neovim` or `LuaSnip`.
+> If the snippets don't work, try removing the comment lines at the top of each JSON file. These are ignored by VS Code, but might not be ignored by `neovim` or `LuaSnip`.
 
 
 [ann]: https://docs.ultralytics.com/usage/simple-utilities/#drawing-annotations
