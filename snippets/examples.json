@@ -294,5 +294,26 @@
 			"# See docs page on callbacks https://docs.ultralytics.com/usage/callbacks/ for more information"
 		],
 		"description": "Example showing how to add a custom callback function."
+	},
+
+	"Ultralytics SAM2 Examples":{
+		"prefix":"ultra.example-sam2",
+		"body":[
+			"from ultralytics import ASSETS, SAM",
+			"",
+			"model = SAM(\"sam2_${1|t,s,b,l|}.pt\")",
+			"",
+			"# SAM2 with bounding box prompts",
+			"${2:boxes}:list[list[int]] = [${3:[0, 100, 20, 200], [100, 100, 200, 200],}]",
+			"",
+			"box_results = model(ASSETS / \"bus.jpg\", bboxes=$2)",
+			"",
+			"# SAM2 with point prompts",
+			"${4:pts}:list[list[int]] = [${5:[150, 200], [25, 430],}]",
+			"pt_results = model(ASSETS/ \"bus.jpg\", points=$4, labels=[1])",
+			"",
+			"# See docs page about SAM2 https://docs.ultralytics.com/models/sam-2 for more information"
+		],
+		"description": "Example showing use of SAM2 with bounding box and point prompts."
 	}
 }
