@@ -107,12 +107,12 @@
 	"Ultralytics SAM-2 Model w/ Box Prompts": {
 		"prefix": "ultra.sam2-bboxes",
 		"body": [
-			"${1:src}:str = \"path/to/image.jpg\"",
-			"${2:model} = SAM(\"sam2_${3|t,s,b,l|}.pt\")",
+			"${1:src}:str = \"${2:path/to/image.jpg}\"",
+			"${3:model} = SAM(\"sam2_${4|t,s,b,l|}.pt\")",
 			"",
-			"${4:boxes}:list[list[int]] = [${5:[0, 100, 20, 200], [100, 100, 200, 200],}]",
+			"${5:boxes}:list[list[int]] = [${6:[0, 100, 20, 200], [100, 100, 200, 200],}]",
 			"",
-			"$results = 2($1, bboxes=$4)",
+			"$results = $3($1, bboxes=$5)",
 			"",
 			"# reference https://docs.ultralytics.com/models/sam-2/",
 			"$0"
@@ -123,12 +123,12 @@
 	"Ultralytics SAM-2 Model w/ Point Prompts": {
 		"prefix": "ultra.sam2-points",
 		"body": [
-			"${1:src}:str = \"path/to/image.jpg\"",
-			"${2:model} = SAM(\"sam2_${3|t,s,b,l|}.pt\")",
+			"${1:src}:str = \"${2:path/to/image.jpg}\"",
+			"${3:model} = SAM(\"sam2_${4|t,s,b,l|}.pt\")",
 			"",
-			"${4:pts}:list[list[int]] = [${5:[100, 20], [200, 200],}]",
+			"${5:pts}:list[list[int]] = [${6:[100, 20], [200, 200],}]",
 			"",
-			"results = $2($1, points=$4, labels=[1])",
+			"results = $3($1, points=$5, labels=[${7:1}])",
 			"",
 			"# reference https://docs.ultralytics.com/models/sam-2/",
 			"$0"
