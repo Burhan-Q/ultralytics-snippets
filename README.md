@@ -140,6 +140,8 @@ Shortcuts for initializing pretrained [Ultralytics models][models], like [YOLOv8
 | `ultra.nas-model`        | Shortcut to initialize YOLO-NAS model.                       | [YOLO-NAS]                                            |
 | `ultra.rtdetr-model`     | Shortcut to initialize RTDETR model.                         | [RTDETR]                                              |
 | `ultra.yolo-world-model` | Shortcut to initialize YOLO-world model, with class prompts. | [YOLO-World]                                          |
+| `ultra.sam2-bboxes`      | Shortcut to initialize YOLO-World model with text prompts.   | [SAM2]                                                |
+| `ultra.sam2-points`      | Shortcut to initialize YOLO-World model with text prompts.   | [SAM2]                                                |
 
 ### Snippet Example
 
@@ -202,6 +204,7 @@ The Example snippets are more "complete" blocks of code that can be used for boi
 | `ultra.example-yolo-predict-kwords`  | Setup Ultralytics YOLO to perform inference, show **all** inference keyword arguments and their default values. |
 | `ultra.example-yolo-train-kwords`    | Setup Ultralytics YOLO for training, with **all** keyword arguments and their default values.                   |
 | `ultra.example-sam-predict`          | Setup Ultralytics SAM to perform inference (simple).                                                            |
+| `ultra.example-sam2`                 | Example showing use of SAM2 with bounding box and point prompts.                                                |
 | `ultra.example-mobile-sam-predict`   | Setup Ultralytics MobileSAM to perform inference (simple).                                                      |
 | `ultra.example-fast-sam-predict`     | Setup Ultralytics FastSAM to perform inference (simple).                                                        |
 | `ultra.example-nas-predict`          | Setup Ultralytics NAS to perform inference (simple).                                                            |
@@ -259,6 +262,7 @@ Make sure that the path `"./ultralytics-snippets/"` is valid for your install lo
 [FastSAM]: https://docs.ultralytics.com/models/fast-sam
 [YOLO-NAS]: https://docs.ultralytics.com/models/yolo-nas
 [RTDETR]: https://docs.ultralytics.com/models/rtdetr
+[SAM2]: https://docs.ultralytics.com/models/sam-2
 [pred results]: https://docs.ultralytics.com/modes/predict/#working-with-results
 [results class]: https://docs.ultralytics.com/reference/engine/results/
 [auto ann]: https://docs.ultralytics.com/reference/data/annotator/
