@@ -318,7 +318,7 @@
 	},
 
 	"Ultralytics Track Looping Frames with Persistence":{
-		"prefix":"ultra.example-tracking-loop-persist",
+		"prefix":"ultra.example-track-loop-persist",
 		"body":[
 			"import cv2",
 			"",
