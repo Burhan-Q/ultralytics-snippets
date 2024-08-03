@@ -2,7 +2,7 @@
 	"name": "ultralytics-snippets",
 	"displayName": "Ultralytics Snippets",
 	"description": "Snippets to use with the Ultralytics Python library.",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"publisher": "Ultralytics",
     "repository": {
         "type": "git",
@@ -47,6 +47,10 @@
             {
                 "language": "python",
                 "path": "./snippets/results.json"
+            },
+            {
+                "language": "python",
+                "path": "./snippets/kwargs.json"
             }
 		],
     "qna": false
