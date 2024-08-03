@@ -4,8 +4,8 @@
     "Ultralytics YOLO Predict Keyword Arguments":{
 		"prefix": "ultra.kwargs-predict",
 		"body":[
-			"model.predict(",
-			"    source=${1:src},           # (str, optional) source directory for images or videos",
+			"${1:model}.predict(",
+			"    source=${4:src},           # (str, optional) source directory for images or videos",
 			"    imgsz=${5:640},            # (int | list) input images size as int or list[w,h] for predict",
 			"    conf=${6:0.25},            # (float) minimum confidence threshold",
 			"    iou=${7:0.7},              # (float) intersection over union (IoU) threshold for NMS",
@@ -33,8 +33,8 @@
     "Ultralytics Track Keyword Arguments":{
 		"prefix":"ultra.kwargs-track",
 		"body":[
-			"model.track(",
-			"    source=${1:src},           # (str, optional) source directory for images or videos",
+			"${1:model}.track(",
+			"    source=${4:src},           # (str, optional) source directory for images or videos",
 			"    imgsz=${5:640},            # (int | list) input images size as int or list[w,h] for predict",
 			"    conf=${6:0.25},            # (float) minimum confidence threshold",
 			"    iou=${7:0.7},              # (float) intersection over union (IoU) threshold for NMS",
@@ -64,7 +64,7 @@
     "Ultralytics YOLO Train Keyword Arguments":{
 		"prefix": "ultra.kwargs-train",
 		"body":[
-			"${3:model}.train(",
+			"${1:model}.train(",
 			"    data=\"${4:coco8.yaml}\",      # (str, optional) path to data file, i.e. coco8.yaml",
 			"    epochs=${5:100},             # (int) number of epochs to train for",
 			"    time=${6:None},              # (float, optional) number of hours to train for, overrides epochs if supplied",
