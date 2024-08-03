@@ -210,6 +210,8 @@ The Example snippets are more "complete" blocks of code that can be used for boi
 | `ultra.example-nas-predict`          | Setup Ultralytics NAS to perform inference (simple).                                                            |
 | `ultra.example-rtdetr-predict`       | Setup Ultralytics RT-DETR to perform inference (simple).                                                        |
 | `ultra.example-callback`             | Example showing how to add a custom callback function.                                                          |
+| `ultra.example-track-loop-persist`   | Example of how to open video, loop frames, and maintain tracked object IDs.                                     |
+| `ultra.example-track-kwords`         | Example showing all keyword arguments available for track mode.                                                 |
 
 ### Snippet Example
 
@@ -231,6 +233,48 @@ for result in results:
 
 </p></details>
 
+## KWARGS
+
+Use these to insert the various model methods defined in [modes] with all keyword arguments, default values, and commented descriptions quickly into your code. Includes `model` as default variable, but is an editable field accessible using tab stops.
+
+| Prefix                 | Description                                                                              | Reference  |
+| ---------------------- | ---------------------------------------------------------------------------------------- | ---------- |
+| `ultra.kwargs-predict` | Snippet using model `predict` method, including all keyword arguments and defaults.      | [predict]  |
+| `ultra.kwargs-train`   | Snippet using model `train` method, including all keyword arguments and defaults.        | [train]    |
+| `ultra.kwargs-track`   | Snippet using model `track` method, including all keyword arguments and defaults.        | [track]    |
+| `ultra.kwargs-val`     | Snippet using model `val` method, including all keyword arguments and defaults.          | [val]      |
+
+### Snippet Example
+
+<details><summary><code>ultra.kwargs-predict</code></summary>
+<p>
+
+```py
+model.predict(
+    source=src,           # (str, optional) source directory for images or videos
+    imgsz=640,            # (int | list) input images size as int or list[w,h] for predict
+    conf=0.25,            # (float) minimum confidence threshold
+    iou=0.7,              # (float) intersection over union (IoU) threshold for NMS
+    vid_stride=1,         # (int) video frame-rate stride
+    stream_buffer=False,  # (bool) buffer all streaming frames (True) or return the most recent frame (False)
+    visualize=False,     # (bool) visualize model features
+    augment=False,       # (bool) apply image augmentation to prediction sources
+    agnostic_nms=False,  # (bool) class-agnostic NMS
+    classes=None,        # (int | list[int], optional) filter results by class, i.e. classes=0, or classes=[0,2,3]
+    retina_masks=False,  # (bool) use high-resolution segmentation masks
+    embed=None,          # (list[int], optional) return feature vectors/embeddings from given layers
+    show=False,          # (bool) show predicted images and videos if environment allows
+    save=True,           # (bool) save prediction results
+    save_frames=False,   # (bool) save predicted individual video frames
+    save_txt=False,      # (bool) save results as .txt file
+    save_conf=False,     # (bool) save results with confidence scores
+    save_crop=False,     # (bool) save cropped images with results
+    stream=False,        # (bool) for processing long videos or numerous images with reduced memory usage by returning a generator
+    verbose=True,        # (bool) enable/disable verbose inference logging in the terminal
+)
+```
+
+</p></details>
 
 ## Use with `neovim`
 
@@ -248,10 +292,11 @@ Make sure that the path `"./ultralytics-snippets/"` is valid for your install lo
 
 [ann]: https://docs.ultralytics.com/usage/simple-utilities/#drawing-annotations
 [models]: https://docs.ultralytics.com/models
-[_modes]: https://docs.ultralytics.com/modes
-[_predict]: https://docs.ultralytics.com/modes/predict
-[_train]: https://docs.ultralytics.com/modes/train
-[_val]: https://docs.ultralytics.com/modes/val
+[modes]: https://docs.ultralytics.com/modes
+[predict]: https://docs.ultralytics.com/modes/predict
+[train]: https://docs.ultralytics.com/modes/train
+[track]: https://docs.ultralytics.com/modes/track
+[val]: https://docs.ultralytics.com/modes/val
 [YOLOv8]: https://docs.ultralytics.com/models/yolov8
 [YOLOv5]: https://docs.ultralytics.com/models/yolov5
 [YOLOv9]: https://docs.ultralytics.com/models/yolov9
