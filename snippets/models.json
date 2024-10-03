@@ -9,7 +9,7 @@
 			"⚠ NOTE: selections do not prevent you from specifying a combination for a model that doesn't exist.",
 			"Reference the documentation for valid model specifications: https://docs.ultralytics.com/models",
 			"'''",
-			"${1:model} = YOLO(\"yolov${2|8,5,9,10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
+			"${1:model} = YOLO(\"yolo${2|11,v8,v5,v9,v10|}${3|n,s,m,l,x,c,e|}${4|.,-cls.,-seg.,-obb.,-pose.,-world.,-worldv2.|}pt\")",
 			"# reference https://docs.ultralytics.com/models",
 			"$0"
 		],
@@ -21,7 +21,7 @@
 		"body": [
 			"from ultralytics import YOLO",
 			"",
-			"model = YOLO(\"${1:yolov8n.pt}\", task=\"${2|detect,segment,pose,obb,classify|}\")",
+			"model = YOLO(\"${1:yolo11n.pt}\", task=\"${2|detect,segment,pose,obb,classify|}\")",
 			"out_file = model.export(",
 			"    format=\"${3|torchscript,onnx,openvino,engine,coreml,pb,tflite,edgetpu,tfjs,paddle,ncnn|}\",",
 			"    imgsz=${4:640},         # (int | list) input images size for exported model",

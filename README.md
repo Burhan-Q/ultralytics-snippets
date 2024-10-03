@@ -16,6 +16,17 @@ A [Python snippets extension for VS Code](https://marketplace.visualstudio.com/i
   </p>
 </div>
 
+## Updates
+
+- 2024-10-03 :: [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11) added! YOLO11 will now be the default model.
+- 2024-08-26 :: Ultralytics VS Code Snippets integration [documentation page](https://docs.ultralytics.com/integrations/vscode).
+- 2024-08-14 :: Extension size is now ~100x smaller.
+- 2024-08-03 :: Tracking example and KWARGs snippets added.
+- 2024-07-30 :: SAM2 examples included.
+- 2024-07-24 :: Lots of new snippets and updates.
+- 2024-07-17 :: Adds YOLO-world snippet with custom prompts, updates reference links, and adds keyword argument.
+- 2024-07-12 :: Model export snippet added and adds keyword argument.
+
 ## Installation
 
 <img alt="Visual Studio Code Icon" src="https://code.visualstudio.com/assets/images/code-stable.png" width="20" height="20"> <a href="https://marketplace.visualstudio.com/items?itemName=Ultralytics.ultralytics-snippets"><img alt="Visual Studio Marketplace Installs" src="https://img.shields.io/visual-studio-marketplace/i/Ultralytics.ultralytics-snippets?label=Marketplace%20Downloads&color=blue"></a>

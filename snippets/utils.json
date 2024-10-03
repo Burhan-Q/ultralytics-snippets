@@ -6,7 +6,7 @@
 		"body": [
 			"from ultralytics.data.annotator import auto_annotate",
 			"",
-			"auto_annotate(data=\"$1\", det_model=\"yolov8${2|n,s,m,l,x|}.pt\", sam_model=\"${3|sam_b,sam_l,mobile_sam,FastSAM-s,FastSAM-x|}.pt\", device=\"${4|cuda,cpu|}\", output_dir=\"$5\")",
+			"auto_annotate(data=\"$1\", det_model=\"yolo11${2|n,s,m,l,x|}.pt\", sam_model=\"${3|sam_b,sam_l,mobile_sam,FastSAM-s,FastSAM-x|}.pt\", device=\"${4|cuda,cpu|}\", output_dir=\"$5\")",
 			"# Docs example https://docs.ultralytics.com/usage/simple-utilities/#auto-labeling-annotations",
 			"# auto_annotate function reference https://docs.ultralytics.com/reference/data/annotator/#ultralytics.data.annotator.auto_annotate"
 		],
