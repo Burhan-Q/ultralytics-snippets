@@ -23,17 +23,21 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
+    - name: View directories
+      run: ls -lah
     - name: Install dependencies
       run: |
+        git clone https://github.com/ultralytics/ultralytics.git
         python -m pip install --upgrade pip
-        pip install flake8 pytest git+https://github.com/ultralytics/ultralytics.git@main
+        pip install flake8 pytest 
+        pip install -e .ultralytics
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Check docs location
       run: |
         python -c "
         from ultralytics import ASSETS
-        print((ASSETS.parent.parent / 'docs').exists())
-        _ = [print(a) for a in ASSETS.parent.parent.iterdir()]
+        print((ASSETS.parent / 'docs').exists())
+        _ = [print(a) for a in ASSETS.parent.iterdir()]
         "
     - name: Test with pytest
       run: |
