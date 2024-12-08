@@ -32,8 +32,8 @@ jobs:
       run: |
         python -c "
         from ultralytics import ASSETS
-        print((ASSETS.parent / 'docs').exists())
-        _ = [print(a) for a in ASSETS.iterdir()]
+        print((ASSETS.parent.parent / 'docs').exists())
+        _ = [print(a) for a in ASSETS.parent.parent.iterdir()]
         "
     - name: Test with pytest
       run: |
