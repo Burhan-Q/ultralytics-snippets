@@ -30,15 +30,10 @@ jobs:
         git clone https://github.com/ultralytics/ultralytics.git
         python -m pip install --upgrade pip
         pip install flake8 pytest 
-        pip install -e ./ultralytics
+        # pip install -e ./ultralytics
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Check docs location
-      run: |
-        python -c "
-        from ultralytics import ASSETS
-        print((ASSETS.parent / 'docs').exists())
-        _ = [print(a) for a in ASSETS.parent.iterdir()]
-        "
+      run: ls -lah && cd ultralytics && ls -lah
     - name: Test with pytest
       run: |
         pytest
