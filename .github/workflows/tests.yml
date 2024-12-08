@@ -24,10 +24,12 @@ jobs:
       with:
         python-version: "3.10"
     - name: View directories
-      run: ls -lah
+      run: PATH=cwd && ls -lah
     - name: Install dependencies
       run: |
+        cd ..
         git clone https://github.com/ultralytics/ultralytics.git
+        cd $PATH
         python -m pip install --upgrade pip
         pip install flake8 pytest 
         # pip install -e ./ultralytics
