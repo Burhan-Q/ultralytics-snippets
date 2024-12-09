@@ -31,7 +31,7 @@ jobs:
         cd .. && git clone https://github.com/ultralytics/ultralytics.git
         # ULTRA_DOCS="$(pwd)/ultralytics/docs"
         cd $DIR
-        uv pip install flake8 pytest
+        uv pip install --system flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest
       run: |
