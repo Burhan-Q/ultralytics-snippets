@@ -25,16 +25,17 @@ jobs:
         python-version: "3.10"
     - name: View directories
       run: |
-        echo cwd
-        echo ls -lah
+        DIR=cwd
+        echo $DIR
+        ls -lah
     - name: Install dependencies
       run: |
         cd ..
         git clone https://github.com/ultralytics/ultralytics.git
-        cd $PATH
+        cd $DIR
         python -m pip install --upgrade pip
         pip install flake8 pytest 
-        # pip install -e ./ultralytics
+        # pip install -e ../ultralytics
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Check docs location
       run: ls -lah && cd ultralytics && ls -lah
