@@ -19,26 +19,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - uses: astral-sh/setup-uv@v4
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: View directories
+    - name: Install dependencies
+      shell: bash # for Windows compatibility
       run: |
         DIR=$(pwd)
-        echo $DIR
-        ls -lah
-    - name: Install dependencies
-      run: |
-        cd ..
-        git clone https://github.com/ultralytics/ultralytics.git
+        cd .. && git clone https://github.com/ultralytics/ultralytics.git
+        # ULTRA_DOCS="$(pwd)/ultralytics/docs"
         cd $DIR
-        python -m pip install --upgrade pip
-        pip install flake8 pytest 
-        # pip install -e ../ultralytics
+        uv pip install flake8 pytest
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Check docs location
-      run: ls -lah && cd ultralytics && ls -lah
     - name: Test with pytest
       run: |
         pytest
