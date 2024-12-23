@@ -219,7 +219,7 @@ for doc in DOCS_MODE_FILES:
 
 ARGS_DOCS: list[Path] = [ARG_PATH / file for _,v in modes.items() for file in v]
 
-def main():
+def make_snippet_and_kwarg_files():
     # Parse the args from docs and macros
     all_args = {m: [] for m in modes}
     for doc in ARGS_DOCS:
@@ -258,8 +258,9 @@ def main():
             "utf-8"
         )
 
+
 if __name__ == "__main__":
-    main()
+    make_snippet_and_kwarg_files()
 
     from pprint import pprint as pp
     
