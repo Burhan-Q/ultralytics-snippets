@@ -132,9 +132,21 @@ class Args:
         if self.range and self.range != "-":
             splitter = " or " if " or " in self.range else " - "
             self.range = tuple((str2num(n.strip().strip("><=")) for n in self.range.split(splitter)))
-        self.min = str(min(self.range)) if self.range else ""
-        self.max = str(max(self.range)) if self.range else ""
+        self.min = min(self.range) if self.range else "NaN"
+        self.max = max(self.range) if self.range else "NaN"
         self.description = "".join(self.description.strip().split("\n"))
+    
+    def asdict(self) -> dict:
+        """Return the object as a dictionary."""
+        return {
+            "Argument": self.argument,
+            "Default": self.default,
+            "Description": self.description,
+            "Type": self.type,
+            "Range": self.range,
+            "Min": self.min,
+            "Max": self.max
+        }
 
 
 @dataclass
@@ -168,7 +180,7 @@ class DocArgs:
     
     def asdict(self) -> dict:
         """Return the object as a dictionary."""
-        return {"Name": self.name, "Mode": self.mode, "Args": self.args}
+        return {"Name": self.name, "Mode": self.mode, "Args": [a.asdict() for a in self.args]}
 
 
 # Match macros for args to their respective mode files
@@ -182,33 +194,60 @@ for doc in DOCS_MODE_FILES:
 
 ARGS_DOCS: list[Path] = [ARG_PATH / file for _,v in modes.items() for file in v]
 
-# Parse the args from docs and macros
-all_args = {m: [] for m in modes}
-for doc in ARGS_DOCS:
-    doc_args = []
-    lines = doc.read_text("utf-8").split("\n")
-    headers = [h.strip() for h in lines.pop(0).split("|") if h.strip() != "" and h != ""]
-    
-    for i, line in enumerate(lines[1:]):
-        if not line.strip():
-            continue
-        values = (e.strip().strip("`") for e in line.split("|") if e.strip() != "" and e != "")
-        doc_args.append(dict(zip(headers, values)))
-    
-    mode = [k for k,v in modes.items() if doc.name in v][0]
-    all_args[mode] += [DocArgs(doc.stem, mode, doc_args)]  # NOTE since making DocArgs object, will have multiple entries
+def main():
+    # Parse the args from docs and macros
+    all_args = {m: [] for m in modes}
+    for doc in ARGS_DOCS:
+        doc_args = []
+        lines = doc.read_text("utf-8").split("\n")
+        headers = [h.strip() for h in lines.pop(0).split("|") if h.strip() != "" and h != ""]
+        
+        for i, line in enumerate(lines[1:]):
+            if not line.strip():
+                continue
+            values = (e.strip().strip("`") for e in line.split("|") if e.strip() != "" and e != "")
+            doc_args.append(dict(zip(headers, values)))
+        
+        mode = [k for k,v in modes.items() if doc.name in v][0]
+        all_args[mode] += [DocArgs(doc.stem, mode, doc_args)]  # NOTE since making DocArgs object, will have multiple entries
 
 
-snippets = []
-for snippet in SNIPPET_FILES:
-    if snippet.name in CHECK:
-        j_snip: dict[str, dict | str] = parse_custom_json(snippet)
-        for n,e in j_snip.items():
-            this_snippet = Snippet(
-                prefix=e.get('prefix', ""),
-                body=e.get('body', ["",]),
-                description=e.get('description', "")
-            )
-        snippets.append(this_snippet)
+    snippets = []
+    for snippet in SNIPPET_FILES:
+        if snippet.name in CHECK:
+            j_snip: dict[str, dict | str] = parse_custom_json(snippet)
+            for n,e in j_snip.items():
+                this_snippet = Snippet(
+                    prefix=e.get('prefix', ""),
+                    body=e.get('body', ["",]),
+                    description=e.get('description', "")
+                )
+                snippets.append(this_snippet)
+
+    _ = Path("all_args.json").write_text(
+        json.dumps({k:[arg.asdict() for arg in args if arg] for k,args in all_args.items()}, indent=4),
+        "utf-8"
+    )
+    _ = Path("snippets.json").write_text(
+            json.dumps({snippet.name: snippet.__dict__ for snippet in snippets}, indent=4),
+            "utf-8"
+        )
+
+if __name__ == "__main__":
+    main()
+
+    from pprint import pprint as pp
+    
+    snippets = json.loads(Path("snippets.json").read_text("utf-8"))
+    all_args = json.loads(Path("all_args.json").read_text("utf-8"))
+    
+    for snippet in snippets:
+        pp(snippet.get_defaults)
+        pp(snippet.name)
+        pp(snippet.description)
+        pp(snippet.body)
+    pp(all_args)
+
+
 
 # TODO: use snippets and all_args to generate tests
