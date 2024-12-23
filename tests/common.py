@@ -19,6 +19,11 @@ ARG_PATH = DOCS_PATH / "macros"
 SNIPPET_FILES = list((TEST_ROOT.parent / "snippets").glob("*.json"))
 DOCS_MODE_FILES: list[Path] = list((DOCS_PATH / "modes").glob("*.md"))
 
+SNIP_NUM_ARG = re.compile(r"(\w+=)\$\{\d+:\|?(\d+\.?\d*|\d+\.?\d* or \d+\.?\d*)\|?\}")
+SNIP_BOOL_ARG = re.compile(r"(\w+=)\$\{\d+:\|?(True|False)\|?\}")
+SNIP_OPTIONS_ARG = re.compile(r'(\w+=)\\?\"?\$\{\d+\|(.*(?<!\|))\|\}\\?\"?')  # captures "arg=" and | {OPTIONS} |
+SNIP_NONE_ARG = re.compile(r"(\w+=)\$\{\d+:\|?None\|?\}")
+
 
 def clean_macro(m: str) -> re.Match:
     """Extract the file name from a macro string."""
@@ -46,6 +51,26 @@ def default_is_none(d: dict) -> bool:
 def first_type(d: dict) -> str:
     """Return the first type in a string."""
     return str(str(d.get("Type", "str")).split(" or ")[0])
+
+
+def num_args(l: list[str]) -> dict:
+    """Return the number of arguments in a list."""
+    return {k.strip("").replace("=", ""): str2num(v) for k,v in re.findall(SNIP_NUM_ARG, "\n".join(l))}
+
+
+def bool_args(l: list[str]) -> dict:
+    """Return the boolean arguments in a list."""
+    return {k.strip("").replace("=", ""): bool(v) for k,v in re.findall(SNIP_BOOL_ARG, "\n".join(l))}
+
+
+def options_args(l: list[str]) -> dict:
+    """Return the options arguments in a list."""
+    return {k.strip("").replace("=", ""): v.split(",") for k,v in re.findall(SNIP_OPTIONS_ARG, "\n".join(l))}
+
+
+def none_args(l: list[str]) -> dict:
+    """Return the None arguments in a list."""
+    return {k.strip("").replace("=", ""): None for k in re.findall(SNIP_NONE_ARG, "\n".join(l))}
 
 
 @dataclass
