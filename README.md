@@ -18,7 +18,7 @@ A [Python snippets extension for VS Code](https://marketplace.visualstudio.com/i
 
 ## Updates
 
-- 2024-12-XX :: Updated KWARGs snippets to include more drop down options and added drop downs for all boolean args
+- 2025-01-02 :: Updated KWARGs snippets to include more drop down options, added drop downs for all boolean args, add missing args, update some defaults
 - 2024-10-03 :: [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11) added! YOLO11 will now be the default model.
 - 2024-08-26 :: Ultralytics VS Code Snippets integration [documentation page](https://docs.ultralytics.com/integrations/vscode).
 - 2024-08-14 :: Extension size is now ~100x smaller.
