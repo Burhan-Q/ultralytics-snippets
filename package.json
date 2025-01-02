@@ -2,7 +2,7 @@
 	"name": "ultralytics-snippets",
 	"displayName": "Ultralytics Snippets",
 	"description": "Snippets to use with the Ultralytics Python library.",
-	"version": "0.1.10",
+	"version": "0.1.11",
 	"publisher": "Ultralytics",
     "repository": {
         "type": "git",
