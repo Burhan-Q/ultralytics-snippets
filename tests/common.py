@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
-CHECK = ("kwargs.json",)
+CHECK = ("kwargs.code-snippets",)
 
 TEST_ROOT = Path(__file__).parent
 ROOT = TEST_ROOT.parent.parent  # outside of repo
@@ -16,7 +16,7 @@ MACRO_FILENAME_RGX = re.compile(r"(\w+-args\.md)")  # captures macro file name
 KWARGS_REGEX = re.compile(r"\s+(\w+)=\"?\$\{\d+:?\|?(.*(?<!\|))\|?\}\"?")  # captures keyword and default value or options
 
 ARG_PATH = DOCS_PATH / "macros"
-SNIPPET_FILES = list((TEST_ROOT.parent / "snippets").glob("*.json"))
+SNIPPET_FILES = list((TEST_ROOT.parent / "snippets").glob("*.code-snippets"))
 DOCS_MODE_FILES: list[Path] = list((DOCS_PATH / "modes").glob("*.md"))
 
 SNIP_NUM_ARG = re.compile(r"(\w+=)\$\{\d+:\|?(\d+\.?\d*|\d+\.?\d* or \d+\.?\d*)\|?\}")
@@ -24,6 +24,10 @@ SNIP_BOOL_ARG = re.compile(r"(\w+=)\$\{\d+:\|?(True|False)\|?\}")
 SNIP_OPTIONS_ARG = re.compile(r'(\w+=)\\?\"?\$\{\d+\|(.*(?<!\|))\|\}\\?\"?')  # captures "arg=" and | {OPTIONS} |
 SNIP_NONE_ARG = re.compile(r"(\w+=)\$\{\d+:\|?None\|?\}")
 
+ALT_DEFAULTS = {  # acceptable alternate default values
+    "data": "coco8.yaml",
+    "source": "",
+}
 
 def clean_macro(m: str) -> re.Match:
     """Extract the file name from a macro string."""
@@ -109,7 +113,8 @@ class Snippet:
             if "=" in line:
                 k,v = getattr(re.search(KWARGS_REGEX, line), "groups", list)()
                 if "," in v:
-                    ... # TODO: handle multiple options; try choosing doc-default
+                    v = v.split(",")[0]
+                    # TODO: also keep track of available options
                 self.default_args.update({k:v})
         self.name = self.prefix.replace("ultra.kwargs-", "")
     
@@ -249,11 +254,11 @@ def make_snippet_and_kwarg_files():
                 )
                 snippets.append(this_snippet)
 
-    _ = Path("all_args.json").write_text(
+    _ = Path("all_args.code-snippets").write_text(
         json.dumps({k:[arg.asdict() for arg in args if arg] for k,args in all_args.items()}, indent=4),
         "utf-8"
     )
-    _ = Path("snippets.json").write_text(
+    _ = Path("snippets.code-snippets").write_text(
             json.dumps({snippet.name: snippet.__dict__ for snippet in snippets}, indent=4),
             "utf-8"
         )
@@ -264,8 +269,8 @@ if __name__ == "__main__":
 
     from pprint import pprint as pp
     
-    snippets = json.loads(Path("snippets.json").read_text("utf-8"))
-    all_args = json.loads(Path("all_args.json").read_text("utf-8"))
+    snippets = json.loads(Path("snippets.code-snippets").read_text("utf-8"))
+    all_args = json.loads(Path("all_args.code-snippets").read_text("utf-8"))
     
     for snippet in snippets:
         pp(snippet.get_defaults)
