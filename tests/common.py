@@ -119,7 +119,7 @@ class Snippet:
         self.name = self.prefix.replace("ultra.kwargs-", "")
     
     @property
-    def get_defaults(self) -> dict:
+    def defaults(self) -> dict:
         return self.default_args
 
 
@@ -205,12 +205,17 @@ class DocArgs:
     arg_dict: list[dict]
     
     def __post_init__(self) -> None:
-        self.args = [Args(**{str(k).lower():v for k,v in a.items()}) for a in self.arg_dict]
+        self.args: list[Args] = [Args(**{str(k).lower():v for k,v in a.items()}) for a in self.arg_dict]
         _ = [setattr(self, a.argument, a.default) for a in self.args]
     
     def asdict(self) -> dict:
         """Return the object as a dictionary."""
         return {"Name": self.name, "Mode": self.mode, "Args": [a.asdict() for a in self.args]}
+
+    @property
+    def defaults(self) -> dict[str, str]:
+        """Return the default arguments."""
+        return {a.argument: a.default for a in self.args}
 
 
 # Match macros for args to their respective mode files
