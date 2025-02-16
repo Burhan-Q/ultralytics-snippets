@@ -44,3 +44,5 @@ out/
 *.eot
 *.otf
 
+# Ignore python cache files
+__pycache__/
