@@ -302,9 +302,10 @@ Make sure that the path `"./ultralytics-snippets/"` is valid for your install lo
 > If the snippets don't work, try removing the comment lines at the top of each JSON file. These are ignored by VS Code, but might not be ignored by `neovim` or `LuaSnip`.
 
 ## Use with `zed`
-You can use the files in the snippets folder for Zed by copying them to the `~/.config/zed/snippets/python.json` file. If the python.json file and snippets folder do not exist, you can create them as specified.
+You can use the files in the `snippets` folder for Zed by copying them to the `~/.config/zed/snippets/python.json` file. If the `python.json` file and `snippets` folder do not exist, you can create them as specified.
 > [!NOTE]
 > If the snippets don't work, try removing the comment lines at the top of each JSON file.
+> You can follow this link to use the ready-made version: [GitHub](https://github.com/ayberkgezer/ultralytics-zed-snippets).
 
 [ann]: https://docs.ultralytics.com/usage/simple-utilities/#drawing-annotations
 [models]: https://docs.ultralytics.com/models
